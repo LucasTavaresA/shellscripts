@@ -6,14 +6,14 @@
 
 ### ajustar_tamanho.sh
 
-Ajusta janela focada para a proporção correta
-exemplo: removendo barras pretas em um vídeo
-dependências: bc, jq
+Ajusta janela focada para a proporção correta\
+exemplo: removendo barras pretas em um vídeo\
+dependências: bc, jq\
 **Funciona apenas no bspwm**
 
 ### st_scratchpad
 
-Implementação de scratchpad para o **bspwm**
+Implementação de scratchpad para o **bspwm**\
 dependências: xdo, xdotool
 
 ### sxhkd_atalhos
