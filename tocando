@@ -1,0 +1,4 @@
+#!/bin/sh
+musica=$(mpc current -f %file%)
+nome="${musica##*/}"
+notify-send Tocando "$nome"
