@@ -1,12 +1,13 @@
 #!/usr/bin/expect --
 
 # implementação do askpass para o doas
-# dependências: expect, dmenu_pass
-# exemplo de uso: DOAS_ASKPASS="dmenu -P -p Senha  :" doas_askpass echo working
+# uso:
+# 1- export DOAS_ASKPASS="dmenu -P -p Senha:"
+# 2- doas_askpass echo working
 
 log_user 0
 
-if { $argc == 0 } { exit 0 } # sair com esq
+if { $argc == 0 } { exit 0 } # Sair com esq
 
 # tratar todos os comandos como argumentos
 set cmd [lrange $argv 0 end];
@@ -15,7 +16,7 @@ set cmd [lrange $argv 0 end];
 if {[info exists ::env(DOAS_ASKPASS)]} {
     set askpass "$::env(DOAS_ASKPASS)"
 } else {
-    set askpass "dmenu_pass Senha  :"
+    set askpass "dmenu_pass senha:"
 }
 
 # ler senha de usuário
