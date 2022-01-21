@@ -7,7 +7,8 @@
 
 log_user 0
 
-if { $argc == 0 } { exit 0 } # Sair com esq
+ # Sair com esq
+if { $argc == 0 } { exit 0 }
 
 # tratar todos os comandos como argumentos
 set cmd [lrange $argv 0 end];
