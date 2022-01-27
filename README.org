@@ -1,0 +1,33 @@
+* Scripts
+
+** [[https://github.com/slavistan/howto-lf-image-previews][scripts do lf]]
+
+Previsão de imagens no lf
+
+** [[https://noxz.tech/articles/askpass_implementation_for_doas/][doas_askpass]]
+
+Implementação do askpass usando doas e o dmenu
+
+** ajustar_tamanho.sh
+
+Ajusta janela focada para a proporção correta
+exemplo: removendo barras pretas em um vídeo
+dependências: bc, jq
+**Funciona apenas no bspwm**
+
+** st_scratchpad
+
+Implementação de scratchpad para o **bspwm**
+dependências: xdo, xdotool
+
+** sxhkd_atalhos
+
+Gera uma lista de teclas do sxhkd
+
+** zsh-aliases
+
+Gera uma lista aliases
+
+** tocando
+
+Manda uma notificação com o nome do arquivo sendo tocando no mpd
