@@ -1,4 +1,5 @@
 #!/bin/sh
 musica=$(mpc current -f %file%)
 nome="${musica##*/}"
+echo "$nome" > "$HOME/.config/mpd/playing"
 notify-send Tocando "$nome"
