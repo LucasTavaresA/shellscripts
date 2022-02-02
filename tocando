@@ -1,5 +1,11 @@
 #!/bin/sh
 musica=$(mpc current -f %file%)
 nome="${musica##*/}"
+
 echo "$nome" > "$HOME/.config/mpd/playing"
+if [ "$1" = "update" ]
+then
+    exit
+fi
+
 notify-send Tocando "$nome"
