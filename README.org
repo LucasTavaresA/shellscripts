@@ -37,4 +37,4 @@ Gera uma lista aliases
 
 ** tocando
 
-Manda uma notificação com o nome do arquivo sendo tocando no mpd
+Guarda nome da musica tocando no mpd em um arquivo e notifica quando chamado com =tocando notificar=
