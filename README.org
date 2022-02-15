@@ -42,3 +42,7 @@ Gera números aleatórios ate ser cancelado
 ** tocando
 
 Guarda nome da musica tocando no mpd em um arquivo e notifica quando chamado com =tocando notificar=
+
+** git_status_recursivo
+
+Mostra status de todos os repositórios em um diretório (incluindo submodulos)
