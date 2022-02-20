@@ -45,4 +45,8 @@ Guarda nome da musica tocando no mpd em um arquivo e notifica quando chamado com
 
 ** git_status_recursivo
 
-Mostra status de todos os repositórios em um diretório (incluindo submodulos)
+Mostra status de todos os repositórios em um diretório (incluindo submódulos)
+
+** Terminal
+
+Tenta abrir um terminal no mesmo diretório da janela atualmente ativa
