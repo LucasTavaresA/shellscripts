@@ -1,4 +1,2 @@
 #!/bin/sh
-
-pacman -Sy
 pacman -Qu | grep -Fcv "[ignored]" | sed "s/^/📦 /;s/^📦 0$//g"
