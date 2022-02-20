@@ -3,4 +3,4 @@ musica=$(mpc current -f %file%)
 nome="${musica##*/}"
 echo "$nome" > "$HOME/.config/mpd/playing"
 [ "$1" = "notificar" ] && notify-send Tocando "$nome"
-[ "$1" = "musica" ] && cut -c -39 "$HOME/.config/mpd/playing"
+[ "$1" = "musica" ] && cut -c -40 "$HOME/.config/mpd/playing"

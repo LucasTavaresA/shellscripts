@@ -50,3 +50,7 @@ Mostra status de todos os repositórios em um diretório (incluindo submódulos)
 ** Terminal
 
 Tenta abrir um terminal no mesmo diretório da janela atualmente ativa
+
+** pacupdates
+
+Mostra quantidade de pacotes para atualizar como STDOUT
