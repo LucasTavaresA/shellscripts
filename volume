@@ -1,0 +1,20 @@
+#!/bin/sh
+
+[ "$(pacmd list-sinks | grep muted: | cut -d' ' -f2)" = yes ] && echo 婢 && exit
+
+vol="$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }' | cut -d'%' -f1)"
+
+if [ "$vol" -gt "60" ]; then
+	icon=""
+	echo "$icon $vol% "
+elif [ "$vol" -gt "40" ]; then
+	icon="墳"
+	echo "$icon $vol% "
+elif [ "$vol" -gt "1" ]; then
+	icon=""
+	echo "$icon $vol% "
+elif [ "$vol" = "0" ]; then
+	echo "婢 "
+	exit
+fi
+

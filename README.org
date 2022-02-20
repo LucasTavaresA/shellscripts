@@ -53,4 +53,12 @@ Tenta abrir um terminal no mesmo diretório da janela atualmente ativa
 
 ** pacupdates
 
-Mostra quantidade de pacotes para atualizar como STDOUT
+Mostra quantidade de pacotes para atualizar
+
+** Netspeed
+
+Mostra velocidade da internet
+
+** Volume
+
+Mostra volume
