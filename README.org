@@ -51,9 +51,9 @@ Mostra status de todos os repositórios em um diretório (incluindo submódulos)
 
 Tenta abrir um terminal no mesmo diretório da janela atualmente ativa
 
-** pacupdates
+** Disk
 
-Mostra quantidade de pacotes para atualizar
+Mostra espaço livre em disco
 
 ** Netspeed
 

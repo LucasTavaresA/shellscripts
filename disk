@@ -1,0 +1,2 @@
+#!/bin/sh
+printf "  %s\n" "$(df -h "/home" | awk ' /[0-9]/ {print $3 "/" $4}')"
