@@ -6,15 +6,15 @@ vol="$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }' | cut -d
 
 if [ "$vol" -gt "60" ]; then
 	icon=""
-	echo "$icon $vol% "
+	echo " $icon $vol% "
 elif [ "$vol" -gt "40" ]; then
 	icon="墳"
-	echo "$icon $vol% "
+	echo " $icon $vol% "
 elif [ "$vol" -gt "1" ]; then
 	icon=""
-	echo "$icon $vol% "
+	echo " $icon $vol% "
 elif [ "$vol" = "0" ]; then
-	echo "婢 "
+	echo " 婢 "
 	exit
 fi
 

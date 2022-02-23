@@ -39,26 +39,18 @@ Gera uma lista aliases
 
 Gera números aleatórios ate ser cancelado
 
-** tocando
+** musica
 
-Guarda nome da musica tocando no mpd em um arquivo e notifica quando chamado com =tocando notificar=
+Notifica se usado com =musica notificar=, Retorna musica e estado do mpd se usado com =musica estado=
 
 ** git_status_recursivo
 
 Mostra status de todos os repositórios em um diretório (incluindo submódulos)
 
-** Terminal
-
-Tenta abrir um terminal no mesmo diretório da janela atualmente ativa
-
-** Disk
+** disk
 
 Mostra espaço livre em disco
 
-** Netspeed
-
-Mostra velocidade da internet
-
-** Volume
+** volume
 
 Mostra volume

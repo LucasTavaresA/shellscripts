@@ -1,0 +1,19 @@
+#!/bin/sh
+caminho="$(mpc current -f %file%)" # /home/lucas/musica.mp3
+arquivo=${caminho##*/} # musica.mp3
+nome=${arquivo%%.*} # musica
+nome_curto=$(echo "$nome" | cut -c -48) # mus
+[ "$1" = "notificar" ] && notify-send Tocando "$nome"
+
+if [ "$1" = "estado" ]; then
+    if ! mpc > /dev/null ; then
+        echo " "
+        exit 0
+    fi
+    mpc=$(mpc | sed -n -e '2{p;q}')
+    if echo "$mpc" | grep "paused" > /dev/null; then
+        echo " $nome_curto "
+    elif echo "$mpc" | grep "playing" > /dev/null; then
+        echo " $nome_curto "
+    fi
+fi
