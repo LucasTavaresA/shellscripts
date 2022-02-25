@@ -47,10 +47,6 @@ Notifica se usado com =musica notificar=, Retorna musica e estado do mpd se usad
 
 Mostra status de todos os repositórios em um diretório (incluindo submódulos)
 
-** disk
-
-Mostra espaço livre em disco
-
 ** volume
 
 Mostra volume
