@@ -23,7 +23,7 @@ dependências: bc, jq
 
 ** st_scratchpad
 
-Implementação de scratchpad para o *bspwm*
+Implementação de scratchpad para o *dwm*
 
 dependências: xdo, xdotool
 
@@ -50,3 +50,7 @@ Mostra status de todos os repositórios em um diretório (incluindo submódulos)
 ** volume
 
 Mostra volume
+
+** nvim
+
+Abre o neovim em um terminal separado
