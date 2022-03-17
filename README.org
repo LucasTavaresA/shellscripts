@@ -7,10 +7,6 @@
 
 Previsão de imagens no lf
 
-** [[https://noxz.tech/articles/askpass_implementation_for_doas/][doas_askpass]]
-
-Implementação do askpass usando doas e o dmenu
-
 ** ajustar_tamanho.sh
 
 Ajusta janela focada para a proporção correta
@@ -26,14 +22,6 @@ dependências: bc, jq
 Implementação de scratchpad para o *dwm*
 
 dependências: xdo, xdotool
-
-** sxhkd_atalhos
-
-Gera uma lista de teclas do sxhkd
-
-** zsh-aliases
-
-Gera uma lista aliases
 
 ** gerar_números
 

@@ -1,2 +1,0 @@
-#!/bin/sh
-grep -i "alias " $HOME/.config/shell/.zshrc | dmenu -l 31 -h 20 -g 2

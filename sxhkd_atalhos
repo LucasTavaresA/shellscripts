@@ -1,3 +1,0 @@
-#!/bin/bash
-[ "$WM" = "bspwm" ]  && cat "$HOME/.config/sxhkd/sxhkdrc_bspwm" | awk '/^[a-z,A-Z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' | column -t -s $'\t' | dmenu -l 31 -h 20
-[ "$WM" = "dwm" ] && cat "$HOME/.config/sxhkd/sxhkdrc" | awk '/^[a-z,A-Z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' | column -t -s $'\t' | dmenu -l 31 -h 20
