@@ -1,20 +1,19 @@
 #!/bin/sh
 
-[ "$(pacmd list-sinks | grep muted: | cut -d' ' -f2)" = yes ] && echo "  婢   " && exit
+[ "$(pacmd list-sinks | grep muted: | cut -d' ' -f2)" = yes ] && echo "婢" && exit 0
 
 vol="$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }' | cut -d'%' -f1)"
 
 if [ "$vol" -gt "65" ]; then
 	icon=""
-	echo "  $icon $vol% "
+	echo "$icon $vol%"
 elif [ "$vol" -gt "45" ]; then
 	icon="墳"
-	echo "  $icon $vol% "
+	echo "$icon $vol%"
 elif [ "$vol" -gt "1" ]; then
 	icon=""
-	echo "  $icon $vol% "
+	echo "$icon $vol%"
 elif [ "$vol" = "0" ]; then
-	echo "  婢   "
-	exit
+	echo "婢"
+	exit 0
 fi
-
