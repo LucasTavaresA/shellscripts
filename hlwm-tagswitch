@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+checkuse() {
+    if [[ "${tags[$1]}" != [.!]* ]]; then
+        herbstclient use "${tags[$1]:1}" # Removendo o primeiro caractere (.#:!)
+        exit 0
+    fi
+}
+
+tags=( $(herbstclient tag_status) )
+
+# Acha a tag atualmente ativa
+for ((i=0; i<="${#tags[@]}"; i++)); do
+    [[ "${tags[i]}" == "#"* ]] && activetag="$i"
+done
+
+if [[ "$1" == next ]]; then # Proxima tag ativa
+    for ((i="$((activetag+1))"; i<"${#tags[@]}"; i++)); do
+        checkuse "$i"
+    done
+    # No final das tags, da a volta
+    for ((i=0; i<"$activetag"; i++)); do
+        checkuse "$i"
+    done
+elif [[ "$1" == prev ]]; then # Tag anterior ativa
+    for ((i="$((activetag-1))"; i>=0; i--)) do
+        checkuse "$i"
+    done
+    # No começo das tags, da a volta
+    for ((i=${#tags[@]}-1; i>$((activetag-1)); i--)) do
+        checkuse "$i"
+    done
+else
+    echo "Usage: $0 [next|prev]"
+    exit 1
+fi
