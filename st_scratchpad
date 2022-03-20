@@ -1,11 +1,5 @@
 #!/bin/sh
-
-nvim_id=$(xdotool search --name "nvim")
-dunst_id=$(xdotool search --class "dunst")
-[ -z "$dunst_id" ] && [ -z "$nvim_id" ] && st_id=$(xdotool search --class "st")
-[ -z "$dunst_id" ] && [ -n "$nvim_id" ] && st_id=$(xdotool search --class "st" | grep -v "$nvim_id")
-[ -n "$dunst_id" ] && [ -z "$nvim_id" ] && st_id=$(xdotool search --class "st" | grep -v "$dunst_id")
-[ -n "$dunst_id" ] && [ -n "$nvim_id" ] && st_id=$(xdotool search --class "st" | grep -v "$dunst_id" | grep -v "$nvim_id")
+st_id=$(xdotool search --class "st-256color")
 
 if [ -z "$st_id" ]; then
         st
