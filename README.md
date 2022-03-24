@@ -14,6 +14,10 @@ dependências: bc, jq
 
 **Funciona apenas no bspwm**
 
+## [st-edittext](https://st.suckless.org/patches/externalpipe/editscreen.sh)
+
+Edita todo o output do st no neovim
+
 ## st_scratchpad
 
 Implementação de scratchpads para o st
