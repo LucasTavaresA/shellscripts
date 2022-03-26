@@ -2,12 +2,12 @@
 st_id=$(xdotool search --class "st-256color")
 
 if [ -z "$st_id" ]; then
-        st
+    st
 else
     if [ ! -f /tmp/hide_scratch ]; then
-            touch /tmp/hide_scratch && xdo hide $st_id
+        touch /tmp/hide_scratch && xdo hide $st_id
     elif [ -f /tmp/hide_scratch ]; then
-            rm /tmp/hide_scratch && xdo show $st_id
-            [ "$WM" = "dwm" ] && dwmc inplacerotate +2
+        rm /tmp/hide_scratch && xdo show $st_id
+        [ "$WM" = "dwm" ] && dwmc inplacerotate +2
     fi
 fi

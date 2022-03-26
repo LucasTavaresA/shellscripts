@@ -4,15 +4,9 @@
 
 Previsão de imagens no lf
 
-## ajustar_tamanho.sh
+## [Stumpish](https://github.com/stumpwm/stumpwm-contrib/blob/master/util/stumpish/stumpish)
 
-Ajusta janela focada para a proporção correta
-
-exemplo: removendo barras pretas em um vídeo
-
-dependências: bc, jq
-
-**Funciona apenas no bspwm**
+Executa comandos do stumpwm no terminal
 
 ## [st-edittext](https://st.suckless.org/patches/externalpipe/editscreen.sh)
 
@@ -22,7 +16,17 @@ Edita todo o output do st no neovim
 
 Implementação de scratchpads para o st
 
-dependências: xdo, xdotool
+Dependências: xdo, xdotool
+
+## ajustar_tamanho.sh
+
+Ajusta janela focada para a proporção correta
+
+Exemplo: removendo barras pretas em um vídeo
+
+Dependências: bc, jq
+
+**Funciona apenas no bspwm**
 
 ## gerar_números
 
