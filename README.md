@@ -6,7 +6,7 @@ Previsão de imagens no lf
 
 ## [Stumpish](https://github.com/stumpwm/stumpwm-contrib/blob/master/util/stumpish/stumpish)
 
-Executa comandos do stumpwm no terminal
+Executa comandos **Não interativos** do stumpwm no terminal
 
 ## [st-edittext](https://st.suckless.org/patches/externalpipe/editscreen.sh)
 
@@ -34,7 +34,9 @@ Gera números aleatórios ate ser cancelado
 
 ## musica
 
-Notifica se usado com `musica notificar`, Retorna musica e estado do mpd se usado com `musica estado`
+Separa nome do arquivo tocando
+
+Notifica com `musica notificar`, Retorna nome se usado com `musica tocando`
 
 ## git_status_recursivo
 
@@ -42,7 +44,7 @@ Mostra status de todos os repositórios em um diretório (incluindo submódulos)
 
 ## volume
 
-Mostra volume
+Mostra porcentagem de volume e icone que muda dependendo do volume
 
 ## nvim
 
@@ -51,7 +53,3 @@ Abre o neovim em um terminal separado
 ## doom_reset
 
 Fecha o emacsclient, sincroniza configurações do doom e reabre o emacsclient
-
-## hlwm-tagswitch
-
-Troca de tags no hlwm pulando tags sem janelas com `hlwm-tagswitch next` / `prev`
