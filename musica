@@ -1,19 +1,15 @@
 #!/bin/sh
+# continua caso o mpd esteja aberto
+if ! mpc > /dev/null ; then
+    exit 0
+fi
+
+# separa o nome da musica
 caminho="$(mpc current -f %file%)" # /home/lucas/musica.mp3
 arquivo=${caminho##*/} # musica.mp3
 nome=${arquivo%%.*} # musica
-nome_curto=$(echo "$nome" | cut -c -48) # mus.. 48 caracteres
-[ "$1" = "notificar" ] && notify-send Tocando "$nome"
+nome_curto=$(echo "$nome" | cut -c -40) # mus.. 40 caracteres
 
-if [ "$1" = "estado" ]; then
-    if ! mpc > /dev/null ; then
-        echo " "
-        exit 0
-    fi
-    mpc=$(mpc | sed -n -e '2{p;q}')
-    if echo "$mpc" | grep "paused" > /dev/null; then
-        echo " $nome_curto "
-    elif echo "$mpc" | grep "playing" > /dev/null; then
-        echo " $nome_curto "
-    fi
-fi
+# faz alguma coisa
+[ "$1" = "notificar" ] && notify-send Tocando "$nome"
+[ "$1" = "tocando" ] && echo "$nome_curto"

@@ -15,5 +15,4 @@ elif [ "$vol" -gt "1" ]; then
 	echo "$icon $vol%"
 elif [ "$vol" = "0" ]; then
 	echo "婢"
-	exit 0
 fi

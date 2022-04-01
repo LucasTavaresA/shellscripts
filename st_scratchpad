@@ -9,5 +9,6 @@ else
     elif [ -f /tmp/hide_scratch ]; then
         rm /tmp/hide_scratch && xdo show $st_id
         [ "$WM" = "dwm" ] && dwmc inplacerotate +2
+        [ "$WM" = "herbstluftwm" ] && herbstclient use 2
     fi
 fi
