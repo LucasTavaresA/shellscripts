@@ -12,6 +12,10 @@ Executa comandos **Não interativos** do stumpwm no terminal
 
 Edita todo o output do st no neovim
 
+## [polybar_windows](https://github.com/tam-carre/polywins)
+
+Mostra janelas abertas na polybar
+
 ## st_scratchpad
 
 Implementação de scratchpads para o st
