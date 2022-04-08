@@ -2,7 +2,7 @@
 if [ "$OS" = "archlinux" ]; then
     updates=$(paru -Qu 2> /dev/null | wc -l)
 elif [ "$OS" = "linuxmint" ]; then
-    doas apt update 2> /dev/null
+    doas apt update >/dev/null 2>&1
     updates=$(apt list --upgradable 2> /dev/null | wc -l)
 fi
 
