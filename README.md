@@ -16,6 +16,10 @@ Edita todo o output do st no neovim
 
 Mostra janelas abertas na polybar
 
+## [polybar_updates](https://github.com/tam-carre/polywins)
+
+Mostra updates pendentes do archlinux na polybar
+
 ## st_scratchpad
 
 Implementação de scratchpads para o st

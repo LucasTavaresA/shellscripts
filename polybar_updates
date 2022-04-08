@@ -1,0 +1,12 @@
+#!/bin/sh
+if [ "$OS" = "archlinux" ]; then
+    updates=$(paru -Qu 2> /dev/null | wc -l)
+elif [ "$OS" = "linuxmint" ]; then
+    updates=$(apt list --upgradable 2> /dev/null | wc -l)
+fi
+
+if [ "$updates" -gt 0 ]; then
+    echo " $updates"
+else
+    echo ""
+fi
