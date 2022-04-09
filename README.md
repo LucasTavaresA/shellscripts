@@ -18,7 +18,9 @@ Mostra janelas abertas na polybar
 
 ## [polybar_updates](https://github.com/tam-carre/polywins)
 
-Mostra updates pendentes do archlinux na polybar
+Mostra updates pendentes na polybar
+
+**Necessário habilitar execução sem senha do comando que atualiza a lista de pacotes no doas,sudo,etc.**
 
 ## st_scratchpad
 
@@ -52,7 +54,7 @@ Mostra status de todos os repositórios em um diretório (incluindo submódulos)
 
 ## volume
 
-Mostra porcentagem de volume e icone que muda dependendo do volume
+Mostra porcentagem de volume e ícone que muda dependendo do volume
 
 ## nvim
 
