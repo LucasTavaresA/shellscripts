@@ -1,0 +1,16 @@
+#!/bin/sh
+# quantidade de janelas
+w_count=$(herbstclient attr tags.focus.client_count)
+# layout atual
+layout=$(herbstclient attr tags.focus.tiling.focused_frame.algorithm)
+if [ "$layout" = "max" ]; then
+    printf "[%s]" "$w_count"
+else
+    if [ "$layout" = "grid" ]; then
+        printf "─┼─"
+    elif [ "$layout" = "vertical" ]; then
+        printf "───"
+    elif [ "$layout" = "horizontal" ]; then
+        printf " │ "
+    fi
+fi
