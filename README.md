@@ -4,6 +4,10 @@
 
 Previsão de imagens no lf
 
+## [dpms-toggle](https://github.com/ramLlama/scripts/blob/master/dpms-toggle.sh)
+
+Ativa/Desativa desligamento automático do monitor
+
 ## [Stumpish](https://github.com/stumpwm/stumpwm-contrib/blob/master/util/stumpish/stumpish)
 
 Executa comandos **Não interativos** do stumpwm no terminal
