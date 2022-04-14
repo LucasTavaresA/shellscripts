@@ -1,12 +1,12 @@
 #!/bin/sh
-if [ "$OS" = "archlinux" || "$OS" = "manjaro" ]; then
+if [ "$PC" = "archlinux" ] || [ "$PC" = "manjaro" ]; then
     doas pacman -Sy >/dev/null 2>&1
     quantidade=$(pacman -Qu 2> /dev/null | wc -l)
-elif [ "$OS" = "linuxmint" ]; then
+elif [ "$PC" = "linuxmint" ]; then
     doas apt update >/dev/null 2>&1
     quantidade=$(apt list --upgradable 2> /dev/null | wc -l)
 fi
 
-if [ "$quantidade" -gt 100 ]; then
+if [ "$quantidade" -gt 30 ]; then
     notify-send -u critical "Atualize os pacotes!" "$quantidade pacotes esperando atualização"
 fi
