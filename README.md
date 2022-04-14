@@ -16,17 +16,17 @@ Edita todo o output do st no neovim
 
 Mostra janelas abertas na polybar
 
-## polybar_updates
-
-Mostra updates pendentes na polybar
-
-**Necessário habilitar execução sem senha do comando que atualiza a lista de pacotes no doas,sudo,etc.**
-
 ## polybar_herbstluftwm
 
 Mostra layout atual e numero de janelas quando em tela cheia
 
 **Funciona apenas no herbstluftwm**
+
+## checar_updates
+
+Checa updates e manda notificação caso existam mais de 100 updates pendentes
+
+**Necessário habilitar execução sem senha do comando que atualiza a lista de pacotes no doas,sudo,etc.**
 
 ## st_scratchpad
 

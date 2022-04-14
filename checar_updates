@@ -1,0 +1,10 @@
+#!/bin/sh
+if [ "$OS" = "archlinux" ]; then
+    doas pacman -Sy >/dev/null 2>&1
+    quantidade=$(pacman -Qu 2> /dev/null | wc -l)
+    icone="/usr/share/icons/Papirus/64x64/apps/start-here-archlinux.svg"
+fi
+
+if [ "$quantidade" -gt 100 ]; then
+    notify-send -u critical --icon="$icone" "Atualize os pacotes!" "$quantidade pacotes esperando atualização"
+fi
