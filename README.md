@@ -26,6 +26,10 @@ Mostra layout atual e numero de janelas quando em tela cheia
 
 **Funciona apenas no herbstluftwm**
 
+## hlwm_control
+
+Permite um controle mais preciso das funções do hersbtluftwm
+
 ## checar_updates
 
 Checa updates e manda notificação caso existam mais de 100 updates pendentes

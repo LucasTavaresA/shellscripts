@@ -1,0 +1,14 @@
+#!/bin/sh
+if [ "$1" = "estado" ]; then
+    flutuante=$(herbstclient attr clients.focus.floating)
+    telacheia=$(herbstclient attr clients.focus.fullscreen)
+    if [ "$2" = "flutuante" ]; then
+        [ "$telacheia" = "true" ] && herbstclient set_attr clients.focus.fullscreen false
+        [ "$flutuante" = "false" ] && herbstclient set_attr clients.focus.floating true
+        [ "$flutuante" = "true" ] && herbstclient set_attr clients.focus.floating false
+    elif [ "$2" = "telacheia" ]; then
+        [ "$flutuante" = "true" ] && herbstclient set_attr clients.focus.floating false
+        [ "$telacheia" = "false" ] && herbstclient set_attr clients.focus.fullscreen true
+        [ "$telacheia" = "true" ] && herbstclient set_attr clients.focus.fullscreen false
+    fi
+fi
