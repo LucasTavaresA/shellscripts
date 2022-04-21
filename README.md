@@ -32,7 +32,7 @@ Permite um controle mais preciso das funções do hersbtluftwm
 
 ## checar_updates
 
-Checa updates e manda notificação caso existam mais de 100 updates pendentes
+Checa updates e manda notificação caso existam mais de 30 updates pendentes
 
 **Necessário habilitar execução sem senha do comando que atualiza a lista de pacotes no doas,sudo,etc.**
 
