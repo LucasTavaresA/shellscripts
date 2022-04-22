@@ -66,10 +66,6 @@ Notifica com `musica notificar`, Retorna nome se usado com `musica tocando`
 
 Mostra porcentagem de volume e ícone que muda dependendo do volume
 
-## nvim
-
-Abre o neovim em um terminal separado
-
 ## doom_reset
 
 Fecha o emacsclient, sincroniza configurações do doom e reabre o emacsclient
