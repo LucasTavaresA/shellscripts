@@ -62,10 +62,6 @@ Separa nome do arquivo tocando
 
 Notifica com `musica notificar`, Retorna nome se usado com `musica tocando`
 
-## git_status_recursivo
-
-Mostra status de todos os repositórios em um diretório (incluindo submódulos)
-
 ## volume
 
 Mostra porcentagem de volume e ícone que muda dependendo do volume

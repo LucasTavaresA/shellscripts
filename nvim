@@ -1,2 +1,0 @@
-#!/bin/sh
-st -c nvim -n nvim -e /usr/bin/nvim "$1" !&
