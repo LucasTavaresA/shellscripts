@@ -1,11 +1,11 @@
 #!/bin/sh
-if [ "$PC" = "voidlinux" ]; then
+if [ "$OS" = "voidlinux" ]; then
     doas xbps-install -S >/dev/null 2>&1
     quantidade=$(xbps-install -un 2> /dev/null | wc -l)
-elif [ "$PC" = "archlinux" ] || [ "$PC" = "manjaro" ]; then
+elif [ "$OS" = "archlinux" ] || [ "$OS" = "manjaro" ]; then
     doas pacman -Sy >/dev/null 2>&1
     quantidade=$(pacman -Qu 2> /dev/null | wc -l)
-elif [ "$PC" = "linuxmint" ]; then
+elif [ "$OS" = "linuxmint" ]; then
     doas apt update >/dev/null 2>&1
     quantidade=$(apt list --upgradable 2> /dev/null | wc -l)
 fi

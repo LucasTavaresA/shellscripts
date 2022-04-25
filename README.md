@@ -16,10 +16,6 @@ Executa comandos **Não interativos** do stumpwm no terminal
 
 Edita todo o output do st no neovim
 
-## [polybar_windows](https://github.com/tam-carre/polywins)
-
-Mostra janelas abertas na polybar
-
 ## polybar_herbstluftwm
 
 Mostra layout atual e numero de janelas quando em tela cheia
