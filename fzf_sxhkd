@@ -1,0 +1,12 @@
+#!/bin/bash
+if [ "$WM" = "herbstluftwm" ]; then
+    cat "$HOME/.config/sxhkd/sxhkd_herbstluftwm" | awk '/^[a-z,A-Z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' | column -t -s $'\t' | fzf --reverse
+elif [ "$WM" = "dwm" ]; then
+    cat "$HOME/.config/sxhkd/sxhkd_dwm" | awk '/^[a-z,A-Z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' | column -t -s $'\t' | fzf --reverse
+elif [ "$WM" = "stumpwm" ]; then
+    cat "$HOME/.config/sxhkd/sxhkd_stumpwm" | awk '/^[a-z,A-Z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' | column -t -s $'\t' | fzf --reverse
+elif [ "$WM" = "bspwm" ]; then
+    cat "$HOME/.config/sxhkd/sxhkd_bspwm" | awk '/^[a-z,A-Z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' | column -t -s $'\t' | fzf --reverse
+else
+    cat "$HOME/.config/sxhkd/sxhkd_nowm" | awk '/^[a-z,A-Z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' | column -t -s $'\t' | fzf --reverse
+fi

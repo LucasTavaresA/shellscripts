@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+# cria lista
+[ "$1" = "update" ] && man -k . > $HOME/.cache/dmenu_man && cheat -l >> $HOME/.cache/dmenu_man && exit
+
+escolha=$(cat $HOME/.cache/dmenu_man | fzf --reverse)
+
+if (echo $escolha | grep cheatsheets > /dev/null); then
+    # abre como cheatsheet
+    echo "$escolha" | cut -d' ' -f1 | sed "s/[^[:alpha:]]//g" | xargs cheat
+else
+    # abre como manpage
+    echo "$escolha" | cut -d' ' -f1 | sed "s/[^[:alpha:]]//g" | xargs man
+fi

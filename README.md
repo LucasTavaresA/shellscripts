@@ -1,5 +1,27 @@
 # Scripts
 
+## fzf_emojis
+
+Seleciona e copia um emoji com o fzf
+
+## fzf_run
+
+Abre programas com o fzf
+
+## fzf_clip
+
+[Clipmenud](https://github.com/cdown/clipmenu) usando o fzf
+
+## fzf_man
+
+Abra manpages e cheatsheets com o fzf
+
+Dependencia para cheatsheets: `cheat`
+
+## fzf_sxhkd
+
+Lista teclas do sxhkd no fzf
+
 ## [scripts do lf](https://github.com/slavistan/howto-lf-image-previews)
 
 Previsão de imagens no lf

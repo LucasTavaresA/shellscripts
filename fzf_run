@@ -1,0 +1,11 @@
+#!/bin/sh
+if [ "$1" = "info" ]; then
+    data=" $(date "+%a %d/%m/%Y - %H:%M")"
+    musica=" 🎶 $(musica tocando)"
+    volume=$(volume)
+    programa=$(dmenu_path | fzf --reverse --header-first --header="$data  $musica  $volume")
+    exec devour $programa
+else
+    programa=$(dmenu_path | fzf --reverse)
+    exec devour $programa
+fi

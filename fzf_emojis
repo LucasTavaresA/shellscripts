@@ -1,0 +1,8 @@
+#!/bin/sh
+
+selecionado=$(cut -d ';' -f1 "$HOME/code/shell/dmenuscripts/listas/emojis" | uniq -u | fzf --reverse | sed "s/ .*//")
+
+# Sai caso nenhum é selecionado.
+[ -z "$selecionado" ] && exit
+
+echo -n "$selecionado" | xclip -selection clipboard && notify-send -i emoji "'$selecionado' copiado."
