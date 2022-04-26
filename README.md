@@ -74,7 +74,7 @@ Seleciona e copia um emoji com o fzf
 
 ## fzf_run
 
-Abre programas com o fzf
+Abre programas com o fzf, mostra informações quando usado com `fzf_run info`
 
 ## fzf_clip
 
@@ -82,13 +82,13 @@ Abre programas com o fzf
 
 ## fzf_man
 
-Abra manpages e cheatsheets com o fzf
+Abra manpages e cheatsheets com o fzf, necessário criar uma lista com `fzf_man update`
 
 Dependencia para cheatsheets: `cheat`
 
 ## fzf_sxhkd
 
-Lista teclas do sxhkd no fzf
+Gera Lista teclas do sxhkd, Usando a variável `$WM` para descobrir o window manager
 
 # dmenu
 
@@ -96,78 +96,50 @@ Lista teclas do sxhkd no fzf
 
 ## [st-scripts](https://st.suckless.org/patches/externalpipe/)
 
-- Scripts para o st usando dmenu e o patch externalpipe
+Scripts para o st usando dmenu e o patch externalpipe
 
 ## [dmenu print](https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/maimpick)
 
-- Varias formas de captura de tela usando o maim, **Adicionado temporizador ajustável**
-
-## [dmenu clip](https://github.com/cdown/clipmenu)
-
-- Gerenciador de itens copiados usando dmenu
-
-## [dmenu emoji](https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/dmenuunicode)
-
-- Seleciona e copia emojis de uma lista
+Varias formas de captura de tela usando o maim, com temporizador ajustável
 
 ## [passmenu](https://www.passwordstore.org/)
 
-- Lista senhas e digita senha selecionada
+Lista senhas do gnu pass e digita/copia senha selecionada
 
 ## [doas_askpass](https://noxz.tech/articles/askpass_implementation_for_doas/)
 
-- Implementação do askpass usando doas e o dmenu
+Implementação do askpass usando doas e o dmenu
+
+Dependencias: `expect`
 
 ## dmenu qutebrowser
 
-- Menu de favoritos e pesquisa para o qutebrowser
+Menu de favoritos e pesquisa para o qutebrowser
 
-dependências: [tyaml](https://github.com/TinyToolSH/)
+Dependências: [tyaml](https://github.com/TinyToolSH/)
 
 ## dmenu sys
 
-- Menu opções de sistema
+Menu opções de sistema
 
 **Usando a variável `$WM` para descobrir o window manager**
 
 ## dmenu mont
 
-- Monta e desmonta drives e isos
-
-## dmenu shhistory
-
-- Copia comandos usados anteriormente no shell
+Monta e desmonta drives e isos
 
 ## dmenu pass
 
-- Frontend para senhas
+Frontend para senhas
 
 ## dmenu edit
 
-- Abre uma lista de arquivos para editar no programa especificado como `$VISUAL`
+Abre uma lista de arquivos para editar no programa especificado como `$VISUAL`
 
 ## dmenu pesquisar
 
-- Abre uma lista de engines para pesquisa usando "aliases" como no qutebrowser
-
-## dmenu sxhkd
-
-- Gera uma lista de teclas do sxhkd
-
-**Usando a variável `$WM` para descobrir o window manager**
+Abre uma lista de engines para pesquisa usando "aliases" como no qutebrowser
 
 ## dmenu xephyr
 
-- Abre aplicações xorg com o xephyr
-
-## dmenu run
-
-- Abre o dmenu normalmente, mostra informações quando usado com `dmenu_run info`
-
-## dmenu man
-
-- Abre manpages e cheatsheets em um terminal separado, necessário criar uma lista com `dmenu_man update`
-
-**Problemas: Terminal fecha com manpages pequenas**
-
-Dependência para cheatsheets: cheat
+Abre aplicações xorg com o xephyr
