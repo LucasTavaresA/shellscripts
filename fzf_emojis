@@ -1,6 +1,6 @@
 #!/bin/sh
 
-selecionado=$(cut -d ';' -f1 "$HOME/code/shell/scripts/listas/emojis" | uniq -u | fzf --reverse | sed "s/ .*//")
+selecionado=$(cut -d ';' -f1 "$HOME/code/shell/listas/emojis" | uniq -u | fzf --reverse | sed "s/ .*//")
 
 # Sai caso nenhum é selecionado.
 [ -z "$selecionado" ] && exit

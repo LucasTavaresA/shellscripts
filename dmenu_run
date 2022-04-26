@@ -1,0 +1,9 @@
+#!/bin/sh
+if [ "$1" = "info" ]; then
+    data=" $(date "+%a %d/%m/%Y - %H:%M")"
+    musica=" 🎶 $(musica tocando)"
+    volume=$(volume)
+    dmenu_path | dmenu -a -l 35 -g 4 -h 20 -p "$data$musica$volume" | ${SHELL:-"/bin/sh"} &
+    else
+    dmenu_path | dmenu -a -z 400 -h 20 -l 35 | ${SHELL:-"/bin/sh"} &
+fi

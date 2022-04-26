@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cache="$HOME/code/shell/scripts/listas/programas"
+cache="$HOME/code/shell/listas/programas"
 
 IFS=:
 if stest -dqr -n "$cache" $PATH; then

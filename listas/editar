@@ -36,5 +36,5 @@ dunst;~/.config/dunst/dunstrc
 gmail codes raposa;~/documentos/gmail-codes-raposaboladona.txt
 gmail codes lucas;~/documentos/gmail-codes-tavares.lassuncao.txt
 gmail codes ano;~/documentos/gmail-codes-anodelebandana.txt
-editar menu;~/code/shell/scripts/dmenu_edit
-editar lista;~/code/shell/scripts/listas/editar
+editar menu;~/code/shell/dmenu_edit
+editar lista;~/code/shell/listas/editar

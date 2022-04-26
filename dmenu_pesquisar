@@ -38,7 +38,7 @@ editarmenu" | dmenu -a -l 1 -h 20 -g 30 -p "🔍 Pesquisar:")
 procurado=${pesquisa#* }
 
 case $pesquisa in
-    editarmenu) $VISUAL "$HOME/code/shell/scripts/dmenu_pesquisar" ;;
+    editarmenu) $VISUAL "$HOME/code/shell/dmenu_pesquisar" ;;
     aw)    site="https://wiki.archlinux.org/" nome="archwiki" ;;
     al)    site="https://anilist.co/user/Lucastavares/animelist" nome="animelist" ;;
     alm)   site="https://anilist.co/user/Lucastavares/mangalist" nome="mangalist" ;;

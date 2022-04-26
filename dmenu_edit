@@ -1,6 +1,6 @@
 #!/bin/sh
 
-lista="$HOME/code/shell/scripts/listas/editar"
+lista="$HOME/code/shell/listas/editar"
 selecionado=$(cut -d';' -f1 "$lista" | dmenu -l 15 -g 3 -h 20 -c -cw 800 -p " Editar:")
 [ -z "$selecionado" ] && exit 0 # Sai caso nada seja selecionado
 arquivo=$(grep -m 1 "$selecionado" "$lista" | cut -d';' -f2)
