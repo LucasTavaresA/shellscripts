@@ -1,0 +1,102 @@
+#!/bin/sh
+
+pesquisa=$(printf "g
+fb
+yt
+ytb
+od
+r
+gh
+gl
+se
+aw
+aur
+fp
+gt
+br
+tw
+sc
+al
+alm
+md
+vn
+imdb
+vt
+mj
+dr
+wu
+gm
+sf
+gf
+ud
+tg
+wm
+editarmenu" | dmenu -a -l 1 -h 20 -g 30 -p "🔍 Pesquisar:")
+
+[ -z "$pesquisa" ] && exit # Sai com escape
+
+procurado=${pesquisa#* }
+
+case $pesquisa in
+    editarmenu) $VISUAL "$HOME/code/shell/scripts/dmenu_pesquisar" ;;
+    aw)    site="https://wiki.archlinux.org/" nome="archwiki" ;;
+    al)    site="https://anilist.co/user/Lucastavares/animelist" nome="animelist" ;;
+    alm)   site="https://anilist.co/user/Lucastavares/mangalist" nome="mangalist" ;;
+    aur)   site="https://aur.archlinux.org" nome="aur" ;;
+    br)    site="https://brainly.com.br/" nome="brainly" ;;
+    dr)    site="https://www.deltarune.com/" nome="deltarune" ;;
+    fb)    site="https://www.facebook.com/" nome="facebook" ;;
+    fp)    site="https://www.freshports.org/" nome="freshports" ;;
+    g)     site="https://www.google.com/" nome="google" ;;
+    gf)    site="https://greasyfork.org/" nome="greasyfork" ;;
+    gh)    site="https://github.com/" nome="github" ;;
+    gl)    site="https://gitlab.com/" nome="gitlab" ;;
+    gm)    site="https://www.google.com.br/maps/" nome="google maps" ;;
+    gt)    site="https://translate.google.com/" nome="translate google" ;;
+    imdb)  site="https://www.imdb.com/" nome="imdb" ;;
+    md)    site="https://mangadex.org/" nome="mangadex" ;;
+    mj)    site="https://tennhou.net/3/" nome="tenhou" ;;
+    od)    site="https://odysee.com/" nome="odysee" ;;
+    r)     site="https://www.reddit.com/" nome="reddit" ;;
+    sc)    site="https://soundcloud.com/you/likes" nome="soundcloud" ;;
+    se)    site="https://stackexchange.com/" nome="stackexchange" ;;
+    sf)    site="https://sourceforge.net/" nome="sourceforge" ;;
+    tg)    site="https://trends.google.com.br/" nome="google trends" ;;
+    tw)    site="https://twitter.com/" nome="twitter" ;;
+    ud)    site="https://www.urbandictionary.com/" nome="urban dictionary" ;;
+    vn)    site="https://vndb.org/" nome="vndb" ;;
+    vt)    site="https://www.virustotal.com/gui/" nome="virustotal" ;;
+    wa)    site="https://web.whatsapp.com/" nome="whatsapp" ;;
+    wm)    site="https://web.archive.org/" nome="waybackmachine" ;;
+    yt)    site="https://www.youtube.com/feed/subscriptions" nome="youtube inscrições" ;;
+    ytb)   site="https://www.youtube.com/feed/library" nome="youtube biblioteca" ;;
+    alm*)  $BROWSER "https://anilist.co/search/manga?search=$procurado&sort=SEARCH_MATCH" & notify-send "Pesquisando no anilist manga" "$procurado" ;;
+    al*)   $BROWSER "https://anilist.co/search/anime?search=$procurado&sort=SEARCH_MATCH" & notify-send "Pesquisando no anilist" "$procurado" ;;
+    aur*)  $BROWSER "https://aur.archlinux.org/packages?O=0&SeB=nd&K=$procurado&outdated=&SB=p&SO=d&PP=50&submit=Go" & notify-send "Pesquisando na aur" "$procurado" ;;
+    aw*)   $BROWSER "https://wiki.archlinux.org/index.php?search=$procurado" & notify-send "Pesquisando no archwiki" "$procurado" ;;
+    br*)   $BROWSER "https://brainly.com.br/app/ask?q=$procurado" & notify-send "Pesquisando no brainly" "$procurado" ;;
+    fp*)   $BROWSER "https://www.freshports.org/search.php?query=$procurado&search=go&num=10&stype=name&method=match&deleted=excludedeleted&start=1&casesensitivity=caseinsensitive" & notify-send "Pesquisando no brainly" "$procurado" ;;
+    gf*)   $BROWSER "https://greasyfork.org/en/scripts?q=$procurado" & notify-send "Pesquisando no greasyfork" "$procurado" ;;
+    gh*)   $BROWSER "https://github.com/search?q=$procurado" & notify-send "Pesquisando no github" "$procurado" ;;
+    gl*)   $BROWSER "https://gitlab.com/search?search=$procurado" & notify-send "Pesquisando no gitlab" "$procurado" ;;
+    gm*)   $BROWSER "https://www.google.com.br/maps/search/$procurado" & notify-send "Pesquisando no google maps" "$procurado" ;;
+    gt*)   $BROWSER "https://translate.google.com/?sl=auto&tl=en&text=$procurado" & notify-send "Pesquisando no google translate" "$procurado" ;;
+    g*)    $BROWSER "https://www.google.com/search?q=$procurado" & notify-send "Pesquisando no google" "$procurado" ;;
+    imdb*) $BROWSER "https://www.imdb.com/find?q=$procurado&ref_=nv_sr_sm" & notify-send "Pesquisando no imdb" "$procurado" ;;
+    md*)   $BROWSER "https://mangadex.org/titles?page=1&q=$procurado&order=relevance.desc" & notify-send "Pesquisando no mangadex" "$procurado" ;;
+    od*)   $BROWSER "https://odysee.com/search?q=$procurado" & notify-send "Pesquisando no odysee" "$procurado" ;;
+    r*)    $BROWSER "https://www.reddit.com/search/?q=$procurado" & notify-send "Pesquisando no reddit" "$procurado" ;;
+    sc*)   $BROWSER "https://soundcloud.com/search?q=$procurado" & notify-send "Pesquisando no soundcloud" "$procurado" ;;
+    se*)   $BROWSER "https://stackexchange.com/search?q=$procurado" & notify-send "Pesquisando no stackexchange" "$procurado" ;;
+    sf*)   $BROWSER "https://sourceforge.net/directory/?q=$procurado" & notify-send "Pesquisando no sourceforge" "$procurado" ;;
+    tw*)   $BROWSER "https://twitter.com/search?q=$procurado" & notify-send "Pesquisando no twitter" "$procurado" ;;
+    tg*)   $BROWSER "https://trends.google.com.br/trends/explore?q=$procurado" & notify-send "Pesquisando no google trends" "$procurado" ;;
+    ud*)   $BROWSER "https://www.urbandictionary.com/define.php?term=$procurado" & notify-send "Pesquisando no urban dictionary" "$procurado" ;;
+    vn*)   $BROWSER "https://vndb.org/v?sq=$procurado" & notify-send "Pesquisando no vndb" "$procurado" ;;
+    wm*)   $BROWSER "https://web.archive.org/web/*/$procurado" & notify-send "Pesquisando no wayback machine" "$procurado" ;;
+    yt*)   $BROWSER "https://www.youtube.com/results?search_query=$procurado" & notify-send "Pesquisando no youtube" "$procurado" ;;
+    *)     $BROWSER & notify-send "Abrindo" "$BROWSER";;
+esac
+
+[ -z "$site" ] && exit
+$BROWSER "$site" & notify-send "Abrindo no $BROWSER" "$nome"

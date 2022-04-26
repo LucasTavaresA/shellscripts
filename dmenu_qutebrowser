@@ -1,0 +1,32 @@
+#!/bin/sh
+
+caminho=$HOME/code/shell/scripts/listas/favoritos.yaml
+comando_tyaml="tyaml $caminho"
+prompt=$($comando_tyaml -k)
+caminho_atual="$prompt"
+
+checar_sub_item () {
+    selecionada=$1
+    caminho_atual="$caminho_atual.$selecionada"
+
+    sub_item=$($comando_tyaml -k "$caminho_atual")
+
+    if [ -z "$sub_item" ];
+    then
+        comando=$($comando_tyaml -v "$caminho_atual")
+        case $comando in
+         "dmenu_pesquisar") $comando ;;
+         *) eval $comando & notify-send "Abrindo" "$comando"
+        esac
+    else
+        prompt=$selecionada
+        mostrar_items
+    fi
+}
+
+mostrar_items () {
+    tag_selecionada=$($comando_tyaml -k "$caminho_atual" | dmenu -l 35 -h 20 -c -cw 300 -p " $prompt:")
+    [ -z "$tag_selecionada" ] || checar_sub_item "$tag_selecionada"
+}
+
+mostrar_items

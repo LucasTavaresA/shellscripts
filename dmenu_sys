@@ -1,0 +1,42 @@
+#!/bin/sh
+if [ "$OS" = "voidlinux" ]; then
+    reiniciar="doas_askpass reboot"
+    desligar="doas_askpass poweroff"
+elif [ "$OS" = "archlinux" ] || [ "$OS" = "manjaro" ]; then
+    reiniciar="systemctl reboot"
+    desligar="systemctl poweroff"
+fi
+
+if [ "$WM" = "herbstluftwm" ]; then
+    resetar="herbstclient reload"
+    sair="herbstclient quit"
+elif [ "$WM" = "dwm" ]; then
+    resetar="kill -HUP "$(pgrep -u "$USER" "\bdwm$")""
+    sair="kill -TERM "$(pgrep -u "$USER" "\bdwm$")""
+elif [ "$WM" = "bspwm" ]; then
+    resetar="bspc wm -r"
+    sair="bspc quit"
+elif [ "$WM" = "stumpwm" ]; then
+    resetar="stumpish reload-config"
+    sair="pkill stumpwm"
+else
+    case "$(printf " Desligamento de tela\\n Bloquear\\n Resetar o sxhkd\\n Sair do $WM\\nﰇ Reiniciar\\n襤 Desligar" | dmenu -l 35 -h 20 -c -cw 100 -p " Opções:")" in
+        " Desligamento de tela") dpms-toggle.sh ;;
+        " Bloquear") slock ;;
+        " Resetar o sxhkd") pkill -USR1 -x sxhkd && notify-send "sxhkd reiniciado";;
+        " Sair do $WM") pkill "$WM" ;;
+        "ﰇ Reiniciar") $reiniciar ;;
+        "襤 Desligar") $desligar ;;
+    esac
+    exit
+fi
+
+case "$(printf " Desligamento de tela\\n Bloquear\\n Resetar o sxhkd\\nﰇ Resetar o $WM\\n Sair do $WM\\nﰇ Reiniciar\\n襤 Desligar" | dmenu -l 35 -h 20 -c -cw 100 -p " Opções:")" in
+    " Desligamento de tela") dpms-toggle.sh ;;
+    " Bloquear") slock ;;
+    " Resetar o sxhkd") pkill -USR1 -x sxhkd && notify-send "sxhkd reiniciado";;
+    "ﰇ Resetar o $WM") $resetar ;;
+    " Sair do $WM") $sair ;;
+    "ﰇ Reiniciar") $reiniciar ;;
+	"襤 Desligar") $desligar ;;
+esac

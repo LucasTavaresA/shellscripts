@@ -1,0 +1,40 @@
+xinitrc;~/.config/x11/xinitrc
+sxhkd herbstluftwm;~/.config/sxhkd/sxhkd_herbstluftwm
+sxhkd dwm;~/.config/sxhkd/sxhkd_dwm
+sxhkd stumpwm;~/.config/sxhkd/sxhkd_stumpwm
+sxhkd bspwm;~/.config/sxhkd/sxhkd_bspwm
+sxhkd nowm;~/.config/sxhkd/sxhkd_nowm
+sh profile;~/.profile
+sh history;~/.config/shell/history
+zshrc;~/.config/shell/.zshrc
+bashrc;~/.config/shell/bashrc
+qutebrowser config;~/.config/qutebrowser/config.py
+qutebrowser css;~/.config/qutebrowser/styles/dark.css
+qutebrowser autoconfig;~/.config/qutebrowser/autoconfig.yml
+qutebrowser quickmarks;~/.config/qutebrowser/quickmarks
+nvim config;~/.config/nvim/init.lua
+vimspector config;~/.config/nvim/data/vimspector/configurations/linux/_all/vim-debug-cofiguration.json
+emacs config;~/.config/doom/config.org
+lfrc;~/.config/lf/lfrc
+git ignore;~/.config/git/ignore
+git config;~/.config/git/config
+polybar;~/.config/polybar/config.ini
+herbstluftwmrc;~/.config/herbstluftwm/autostart
+stumpwm config;~/.config/stumpwm/config
+bspwmrc;~/.config/bspwm/bspwmrc
+xresources;~/.config/x11/xresources
+alacritty;~/.config/alacritty/alacritty.yml
+spectrwm;~/.config/spectrwm/spectrwm.conf
+tmux;~/.config/tmux/tmux.conf
+ncmpcpp config;~/.config/ncmpcpp/config
+ncmpcpp bindings;~/.config/ncmpcpp/bindings
+mpd;~/.config/mpd/mpd.conf
+mimeapps;~/.config/mimeapps.list
+picom;~/.config/picom/picom.conf
+zathura;~/.config/zathura/zathurarc
+dunst;~/.config/dunst/dunstrc
+gmail codes raposa;~/documentos/gmail-codes-raposaboladona.txt
+gmail codes lucas;~/documentos/gmail-codes-tavares.lassuncao.txt
+gmail codes ano;~/documentos/gmail-codes-anodelebandana.txt
+editar menu;~/code/shell/scripts/dmenu_edit
+editar lista;~/code/shell/scripts/listas/editar
