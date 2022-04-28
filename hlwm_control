@@ -1,4 +1,7 @@
 #!/bin/sh
+if [ "$1" = "picom" ]; then
+    pkill picom || picom
+fi
 if [ "$1" = "estado" ]; then
     flutuante=$(herbstclient attr clients.focus.floating)
     telacheia=$(herbstclient attr clients.focus.fullscreen)
