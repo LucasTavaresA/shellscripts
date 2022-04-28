@@ -3,6 +3,7 @@ if [ "$1" = "picom" ]; then
     pkill picom || picom
 fi
 if [ "$1" = "estado" ]; then
+    herbstclient lock
     flutuante=$(herbstclient attr clients.focus.floating)
     telacheia=$(herbstclient attr clients.focus.fullscreen)
     if [ "$2" = "flutuante" ]; then
@@ -14,4 +15,5 @@ if [ "$1" = "estado" ]; then
         [ "$telacheia" = "false" ] && herbstclient set_attr clients.focus.fullscreen true
         [ "$telacheia" = "true" ] && herbstclient set_attr clients.focus.fullscreen false
     fi
+    herbstclient unlock
 fi
