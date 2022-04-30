@@ -124,6 +124,8 @@ Menu opções de sistema
 
 **Usando a variável `$WM` para descobrir o window manager**
 
+**Necessário habilitar execução sem senha do comando para desligar/reiniciar no doas,sudo,etc.**
+
 ## dmenu mont
 
 Monta e desmonta drives e isos
