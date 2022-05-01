@@ -6,5 +6,5 @@ selecionado=$(cut -d';' -f1 "$lista" | dmenu -l 15 -g 3 -h 20 -c -cw 800 -p "
 arquivo=$(grep -m 1 "$selecionado" "$lista" | cut -d';' -f2)
 extensao="${arquivo##*.}"
 
-[ "$extensao" = "org" ] && emacsclient -n -c "$arquivo" && exit
+[ "$extensao" = "org" ] && VISUAL="emacsclient -n -c"
 eval "$VISUAL" "$arquivo"
