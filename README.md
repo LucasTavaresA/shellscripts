@@ -112,9 +112,9 @@ Implementação do askpass usando doas e o dmenu
 
 Dependencias: `expect`
 
-## dmenu qutebrowser
+## dmenu browser
 
-Menu de favoritos e pesquisa para o qutebrowser
+Menu de favoritos e pesquisa
 
 Dependências: [tyaml](https://github.com/TinyToolSH/)
 
