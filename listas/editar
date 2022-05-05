@@ -15,7 +15,7 @@ qutebrowser autoconfig;~/.config/qutebrowser/autoconfig.yml
 qutebrowser quickmarks;~/.config/qutebrowser/quickmarks
 nvim config;~/.config/nvim/init.lua
 vimspector config;~/.config/nvim/data/vimspector/configurations/linux/_all/vim-debug-cofiguration.json
-emacs config;~/.config/doom/config.org
+emacs config;~/.config/doom/config.el ~/.config/doom/init.el ~/.config/doom/packages.el
 lfrc;~/.config/lf/lfrc
 git ignore;~/.config/git/ignore
 git config;~/.config/git/config
