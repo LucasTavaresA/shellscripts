@@ -2,7 +2,7 @@
 if [ "$OS" = "voidlinux" ]; then
     reiniciar="doas reboot"
     desligar="doas poweroff"
-elif [ "$OS" = "archlinux" ] || [ "$OS" = "manjaro" ]; then
+elif [ "$OS" = "artixlinux" ] || [ "$OS" = "archlinux" ] || [ "$OS" = "manjaro" ]; then
     reiniciar="systemctl reboot"
     desligar="systemctl poweroff"
 fi
