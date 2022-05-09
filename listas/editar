@@ -1,6 +1,5 @@
 readme;~/README.md
 xinitrc;~/.config/x11/xinitrc
-sxhkd herbstluftwm;~/.config/sxhkd/sxhkd_herbstluftwm
 sxhkd dwm;~/.config/sxhkd/sxhkd_dwm
 sxhkd stumpwm;~/.config/sxhkd/sxhkd_stumpwm
 sxhkd bspwm;~/.config/sxhkd/sxhkd_bspwm
