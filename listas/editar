@@ -7,6 +7,7 @@ sh profile;~/.profile
 sh history;~/.config/shell/history
 zshrc;~/.config/shell/.zshrc
 bashrc;~/.config/shell/bashrc
+starship config;~/.config/starship.toml
 qutebrowser config;~/.config/qutebrowser/config.py
 qutebrowser css;~/.config/qutebrowser/styles/dark.css
 qutebrowser autoconfig;~/.config/qutebrowser/autoconfig.yml
