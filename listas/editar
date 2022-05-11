@@ -1,4 +1,3 @@
-readme;~/README.md
 xinitrc;~/.config/x11/xinitrc
 sxhkd dwm;~/.config/sxhkd/sxhkd_dwm
 sxhkd stumpwm;~/.config/sxhkd/sxhkd_stumpwm
