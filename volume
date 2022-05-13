@@ -1,18 +1,19 @@
 #!/bin/sh
 
-[ "$(pacmd list-sinks | grep muted: | cut -d' ' -f2)" = yes ] && echo "婢" && exit 0
+[ "$1" = "semicones" ] && printf "%s" "$(amixer sget Master | grep -m 1 -o '\[.*%\]')" && exit 0
+[ "$(pacmd list-sinks | grep muted: | cut -d' ' -f2)" = yes ] && printf "婢" && exit 0
 
-vol="$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }' | cut -d'%' -f1)"
+vol="$(amixer sget Master | grep -m 1 '\[.*%\]' | awk -F'[][]' '{ print $2 }' | cut -d'%' -f1)"
 
 if [ "$vol" -gt "65" ]; then
 	icon=""
-	echo "$icon $vol%"
+	printf "%s %s%%" "$icon" "$vol"
 elif [ "$vol" -gt "45" ]; then
 	icon="墳"
-	echo "$icon $vol%"
+	printf "%s %s%%" "$icon" "$vol"
 elif [ "$vol" -gt "1" ]; then
 	icon=""
-	echo "$icon $vol%"
+	printf "%s %s%%" "$icon" "$vol"
 elif [ "$vol" = "0" ]; then
-	echo "婢"
+	printf "婢"
 fi

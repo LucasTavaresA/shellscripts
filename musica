@@ -12,4 +12,4 @@ nome_curto=$(echo "$nome" | cut -c -40) # mus.. 40 caracteres
 
 # faz alguma coisa
 [ "$1" = "notificar" ] && notify-send Tocando "$nome"
-[ "$1" = "tocando" ] && echo "$nome_curto"
+[ "$1" = "tocando" ] && printf "%s" "$nome_curto"
