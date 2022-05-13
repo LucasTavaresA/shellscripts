@@ -11,6 +11,7 @@ gl
 se
 aw
 aur
+ew
 fp
 gt
 br
@@ -54,6 +55,7 @@ case $pesquisa in
     gm)    site="https://www.google.com.br/maps/" nome="google maps" ;;
     gt)    site="https://translate.google.com/" nome="translate google" ;;
     imdb)  site="https://www.imdb.com/" nome="imdb" ;;
+    ew)    site="https://www.emacswiki.org" nome="emacswiki" ;;
     md)    site="https://mangadex.org/" nome="mangadex" ;;
     mj)    site="https://tennhou.net/3/" nome="tenhou" ;;
     od)    site="https://odysee.com/" nome="odysee" ;;
@@ -74,6 +76,7 @@ case $pesquisa in
     al*)   $BROWSER "https://anilist.co/search/anime?search=$procurado&sort=SEARCH_MATCH" & notify-send "Pesquisando no anilist" "$procurado" ;;
     aur*)  $BROWSER "https://aur.archlinux.org/packages?O=0&SeB=nd&K=$procurado&outdated=&SB=p&SO=d&PP=50&submit=Go" & notify-send "Pesquisando na aur" "$procurado" ;;
     aw*)   $BROWSER "https://wiki.archlinux.org/index.php?search=$procurado" & notify-send "Pesquisando no archwiki" "$procurado" ;;
+    ew*)   $BROWSER "https://html.duckduckgo.com/html?q=$procurado%20site%3Aemacswiki.org" & notify-send "Pesquisando na emacswiki" "$procurado" ;;
     br*)   $BROWSER "https://brainly.com.br/app/ask?q=$procurado" & notify-send "Pesquisando no brainly" "$procurado" ;;
     fp*)   $BROWSER "https://www.freshports.org/search.php?query=$procurado&search=go&num=10&stype=name&method=match&deleted=excludedeleted&start=1&casesensitivity=caseinsensitive" & notify-send "Pesquisando no brainly" "$procurado" ;;
     gf*)   $BROWSER "https://greasyfork.org/en/scripts?q=$procurado" & notify-send "Pesquisando no greasyfork" "$procurado" ;;
