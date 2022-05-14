@@ -7,7 +7,7 @@ fi
 # separa o nome da musica
 caminho="$(mpc current -f %file%)" # /home/lucas/musica.mp3
 arquivo=${caminho##*/} # musica.mp3
-nome=${arquivo%%.*} # musica
+nome=${arquivo%.*} # musica
 nome_curto=$(echo "$nome" | cut -c -40) # mus.. 40 caracteres
 
 # faz alguma coisa
