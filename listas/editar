@@ -1,36 +1,36 @@
 xinitrc;~/.config/x11/xinitrc
+profile;~/.profile
+sh history;~/.config/shell/history
+zsh;~/.config/shell/.zshrc
+bash;~/.config/shell/bashrc
+starship;~/.config/starship.toml
+doom emacs;~/.config/doom/config.el ~/.config/doom/init.el ~/.config/doom/packages.el
+nvim;~/.config/nvim/init.lua
+stumpwm;~/.config/stumpwm/config
+herbstluftwm;~/.config/herbstluftwm/autostart
+i3;~/.config/i3/config
+bspwm;~/.config/bspwm/bspwmrc
+spectrwm;~/.config/spectrwm/spectrwm.conf
 sxhkd dwm;~/.config/sxhkd/sxhkd_dwm
 sxhkd bspwm;~/.config/sxhkd/sxhkd_bspwm
 sxhkd nowm;~/.config/sxhkd/sxhkd_nowm
-sh profile;~/.profile
-sh history;~/.config/shell/history
-zshrc;~/.config/shell/.zshrc
-bashrc;~/.config/shell/bashrc
-starship config;~/.config/starship.toml
+git ignore;~/.config/git/ignore
+git config;~/.config/git/config
+polybar;~/.config/polybar/config.ini
+lf;~/.config/lf/lfrc
+zathura;~/.config/zathura/zathurarc
 qutebrowser config;~/.config/qutebrowser/config.py
 qutebrowser css;~/.config/qutebrowser/styles/dark.css
 qutebrowser autoconfig;~/.config/qutebrowser/autoconfig.yml
 qutebrowser quickmarks;~/.config/qutebrowser/quickmarks
-nvim config;~/.config/nvim/init.lua
-vimspector config;~/.config/nvim/data/vimspector/configurations/linux/_all/vim-debug-cofiguration.json
-emacs config;~/.config/doom/config.el ~/.config/doom/init.el ~/.config/doom/packages.el
-lfrc;~/.config/lf/lfrc
-git ignore;~/.config/git/ignore
-git config;~/.config/git/config
-polybar;~/.config/polybar/config.ini
-herbstluftwmrc;~/.config/herbstluftwm/autostart
-stumpwm config;~/.config/stumpwm/config
-bspwmrc;~/.config/bspwm/bspwmrc
+picom;~/.config/picom/picom.conf
 xresources;~/.config/x11/xresources
 alacritty;~/.config/alacritty/alacritty.yml
-spectrwm;~/.config/spectrwm/spectrwm.conf
 tmux;~/.config/tmux/tmux.conf
-ncmpcpp config;~/.config/ncmpcpp/config
+ncmpcpp;~/.config/ncmpcpp/config
 ncmpcpp bindings;~/.config/ncmpcpp/bindings
 mpd;~/.config/mpd/mpd.conf
 mimeapps;~/.config/mimeapps.list
-picom;~/.config/picom/picom.conf
-zathura;~/.config/zathura/zathurarc
 dunst;~/.config/dunst/dunstrc
 gmail codes raposa;~/documentos/gmail-codes-raposaboladona.txt
 gmail codes lucas;~/documentos/gmail-codes-tavares.lassuncao.txt
