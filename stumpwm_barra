@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+while true
+do
+    echo "$(musica tocando)   $(volume semicones)" > "$HOME/.cache/barra"
+done

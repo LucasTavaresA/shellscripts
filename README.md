@@ -62,6 +62,10 @@ Notifica com `musica notificar`, Retorna nome se usado com `musica tocando`
 
 Mostra porcentagem de volume e ícone que muda dependendo do volume
 
+## stumpwm_barra
+
+Cria e atualiza um arquivo em shellscript mantendo a barra rápida
+
 ## doom_reset
 
 Fecha o emacsclient, sincroniza configurações do doom e reabre o emacsclient
