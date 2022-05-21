@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 # cria lista
-[ "$1" = "update" ] && $(man -k . > $HOME/.cache/dmenu_man && cheat -l >> $HOME/.cache/dmenu_man) & exit
+[ "$1" = "update" ] && $(man -k . > $HOME/.cache/dmenu_man && cheat -l >> $HOME/.cache/dmenu_man) && exit
 
-escolha=$(cat $HOME/.cache/dmenu_man | fzf --reverse)
+escolha=$(cat $HOME/.cache/dmenu_man | fzf)
 
 if (echo $escolha | grep cheatsheets > /dev/null); then
     # abre como cheatsheet
