@@ -1,9 +1,5 @@
 # Scripts
 
-## [scripts do lf](https://github.com/slavistan/howto-lf-image-previews)
-
-Previsão de imagens no lf
-
 ## [dpms-toggle](https://github.com/ramLlama/scripts/blob/master/dpms-toggle.sh)
 
 Ativa/Desativa desligamento automático do monitor
