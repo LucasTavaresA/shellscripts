@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+
 while true
 do
     printf "%s   %s" "$(musica tocando)" "$(volume semicones)" > "$HOME/.cache/barra"

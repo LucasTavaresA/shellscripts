@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 caminho=$HOME/code/shell/listas/favoritos.yaml
 comando_tyaml="tyaml $caminho"

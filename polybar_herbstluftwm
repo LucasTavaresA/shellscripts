@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env sh
+
 # quantidade de janelas
 w_count=$(herbstclient attr tags.focus.client_count)
 # layout atual

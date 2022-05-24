@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 [ "$1" = "semicones" ] && printf "%s" "$(amixer sget Master | grep -m 1 -o '\[.*%\]')" && exit 0
 [ "$(pacmd list-sinks | grep muted: | cut -d' ' -f2)" = yes ] && printf "婢" && exit 0

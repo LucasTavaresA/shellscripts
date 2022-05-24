@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 cache="$HOME/code/shell/listas/programas"
 
