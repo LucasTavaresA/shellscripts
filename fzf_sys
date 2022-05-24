@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+
 if [ "$OS" = "artixlinux" ]; then
     reiniciar="loginctl reboot"
     desligar="loginctl poweroff"
@@ -23,7 +24,7 @@ elif [ "$WM" = "stumpwm" ]; then
     resetar="stumpish reload-config"
     sair="pkill stumpwm"
 else
-    case "$(printf " Desligamento de tela\\n Bloquear\\n Resetar a polybar\\n Resetar o sxhkd\\n Sair do %s\\nﰇ Reiniciar\\n襤 Desligar" "$WM" | dmenu -l 35 -h 20 -c -cw 100 -p " Opções:")" in
+    case "$(printf " Desligamento de tela\\n Bloquear\\n Resetar a polybar\\n Resetar o sxhkd\\n Sair do %s\\nﰇ Reiniciar\\n襤 Desligar" "$WM" | fzf)" in
         " Desligamento de tela") dpms-toggle.sh ;;
         " Bloquear") slock ;;
         " Resetar a polybar") polybar-msg cmd restart && sleep 5 && polybar-msg cmd hide ;;
@@ -35,7 +36,7 @@ else
     exit
 fi
 
-case "$(printf " Desligamento de tela\\n Bloquear\\n Resetar a polybar\\n Resetar o sxhkd\\nﰇ Resetar o %s\\n Sair do %s\\nﰇ Reiniciar\\n襤 Desligar" "$WM" "$WM" | dmenu -l 35 -h 20 -c -cw 100 -p " Opções:")" in
+case "$(printf " Desligamento de tela\\n Bloquear\\n Resetar a polybar\\n Resetar o sxhkd\\nﰇ Resetar o %s\\n Sair do %s\\nﰇ Reiniciar\\n襤 Desligar" "$WM" "$WM" | fzf)" in
     " Desligamento de tela") dpms-toggle.sh ;;
     " Bloquear") slock ;;
     " Resetar a polybar") polybar-msg cmd restart && sleep 5 && polybar-msg cmd hide ;;
@@ -43,5 +44,5 @@ case "$(printf " Desligamento de tela\\n Bloquear\\n Resetar a polybar\
     "ﰇ Resetar o $WM") $resetar ;;
     " Sair do $WM") $sair ;;
     "ﰇ Reiniciar") $reiniciar ;;
-	"襤 Desligar") $desligar ;;
+    "襤 Desligar") $desligar ;;
 esac

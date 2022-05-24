@@ -1,6 +1,7 @@
 xinitrc;~/.config/x11/xinitrc
 profile;~/.profile
 sh history;~/.config/shell/history
+fish;~/.config/fish/config.fish
 zsh;~/.config/shell/.zshrc
 bash;~/.config/shell/bashrc
 starship;~/.config/starship.toml

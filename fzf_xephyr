@@ -1,11 +1,12 @@
-#!/bin/sh
-case "$(printf "stumpwm\\nherbstluftwm\\ndwm\\nbspwm\\nspectrwm\\noutro\\neditar menu" | dmenu -l 35 -h 20 -c -cw 100 -p " Programa:")" in
+#!/usr/bin/env sh
+
+case "$(printf "stumpwm\\nherbstluftwm\\ndwm\\nbspwm\\nspectrwm\\noutro\\neditar menu" | fzf)" in
     "stumpwm") wm="stumpwm" ;;
     "herbstluftwm") wm="herbstluftwm" ;;
     "dwm") wm="dwm" ;;
     "bspwm") wm="bspwm" ;;
     "spectrwm") wm="spectrwm" ;;
-    "outro") wm=$(dmenu_path | dmenu -l 35 -h 20 -c -cw 10) ;;
+    "outro") wm=$(dmenu_path | fzf) ;;
     "editar menu") $VISUAL "$HOME/code/shell/dmenu_xephyr" ;;
 esac
 # sai caso nada seja selecionado
@@ -15,5 +16,4 @@ xhost +local:lucas
 Xephyr -screen 1280x720 -reset -terminate -extension GLX 2>/dev/null :1 &
 export DISPLAY=":1"
 sleep 2
-exec $wm
-pkill Xephyr
+exec $wm && pkill Xephyr

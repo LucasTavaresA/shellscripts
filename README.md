@@ -94,6 +94,26 @@ Dependencia para cheatsheets: `cheat`
 
 Gera Lista teclas do sxhkd, Usando a variável `$WM` para descobrir o window manager
 
+## [fzf print](https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/maimpick)
+
+Varias formas de captura de tela usando o maim, com temporizador ajustável
+
+## fzf sys
+
+Menu opções de sistema
+
+**Usando a variável `$WM` para descobrir o window manager**
+
+**Necessário habilitar execução sem senha do comando para desligar/reiniciar no doas,sudo,etc.**
+
+## fzf edit
+
+Abre uma lista de arquivos para editar no programa especificado como `$VISUAL`
+
+## fzf xephyr
+
+Abre aplicações xorg com o xephyr
+
 # dmenu
 
 **Lembre-se de mudar as flags caso for usar os scripts em uma outra build do dmenu**
@@ -101,10 +121,6 @@ Gera Lista teclas do sxhkd, Usando a variável `$WM` para descobrir o window man
 ## [st-scripts](https://st.suckless.org/patches/externalpipe/)
 
 Scripts para o st usando dmenu e o patch externalpipe
-
-## [dmenu print](https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/maimpick)
-
-Varias formas de captura de tela usando o maim, com temporizador ajustável
 
 ## [passmenu](https://www.passwordstore.org/)
 
@@ -122,14 +138,6 @@ Menu de favoritos e pesquisa
 
 Dependências: [tyaml](https://github.com/TinyToolSH/)
 
-## dmenu sys
-
-Menu opções de sistema
-
-**Usando a variável `$WM` para descobrir o window manager**
-
-**Necessário habilitar execução sem senha do comando para desligar/reiniciar no doas,sudo,etc.**
-
 ## dmenu mont
 
 Monta e desmonta drives e isos
@@ -138,14 +146,6 @@ Monta e desmonta drives e isos
 
 Frontend para senhas
 
-## dmenu edit
-
-Abre uma lista de arquivos para editar no programa especificado como `$VISUAL`
-
 ## dmenu pesquisar
 
 Abre uma lista de engines para pesquisa usando "aliases" como no qutebrowser
-
-## dmenu xephyr
-
-Abre aplicações xorg com o xephyr
