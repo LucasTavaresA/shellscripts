@@ -12,6 +12,10 @@ Executa comandos **Não interativos** do stumpwm no terminal
 
 Edita todo o output do st no neovim
 
+## lixo
+
+Script simples para gerenciamento de uma lixeira
+
 ## polybar_herbstluftwm
 
 Mostra layout atual e numero de janelas quando em tela cheia

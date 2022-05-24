@@ -1,0 +1,44 @@
+#!/usr/bin/env sh
+
+TRASH_FOLDER="$HOME/.trash"
+CACHE_FOLDER="$HOME/.cache"
+CACHE_FILE="$CACHE_FOLDER/lixo"
+
+[ ! -d "$TRASH_FOLDER" ] && mkdir "$TRASH_FOLDER"
+[ ! -d "$CACHE_FOLDER" ] && mkdir "$CACHE_FOLDER"
+
+if [ "$1" = "limpar" ]; then
+    lsd -lA "$TRASH_FOLDER/"
+    printf "Limpar a lixeira? [y/n]"
+    old_stty_cfg=$(stty -g)
+    stty raw -echo ; resposta=$(head -c 1) ; stty "$old_stty_cfg"
+    if echo "$resposta" | grep -iq "^y" ;then
+        rm -rf $TRASH_FOLDER/* >/dev/null 2>&1
+        rm -rf $TRASH_FOLDER/.* >/dev/null 2>&1
+        rm -f "$CACHE_FILE" >/dev/null 2>&1
+        printf "\nLixeira limpa!"
+        exit
+    fi
+    exit
+fi
+
+substituir () {
+    for arquivo in "$@"
+    do
+        mv -f "$arquivo" "$TRASH_FOLDER" >/dev/null 2>&1 || nome=${arquivo##*/} && \
+            rm -rf "$TRASH_FOLDER/$nome" && mv -f "$arquivo" "$TRASH_FOLDER"
+    done
+}
+
+mv -f "$@" "$TRASH_FOLDER" >/dev/null 2>&1 || substituir "$@"
+
+if [ -e "$CACHE_FILE" ]; then
+    quantia=$(cat "$CACHE_FILE")
+    quantia=$((quantia+1))
+    echo $quantia > "$CACHE_FILE"
+    [ "$(cat "$CACHE_FILE")" -gt 5 ] && \
+        echo "Limpe a sua lixeira!" && notify-send -u critical "Lixeira" "Limpe a sua lixeira!" && return
+else
+    touch "$CACHE_FILE"
+    echo 1 > "$CACHE_FILE"
+fi
