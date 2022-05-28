@@ -76,10 +76,6 @@ Fecha o emacsclient, sincroniza configurações do doom e reabre o emacsclient
 
 Seleciona e copia um emoji com o fzf
 
-## fzf_run
-
-Abre programas com o fzf, mostra informações quando usado com `fzf_run info`
-
 ## fzf_clip
 
 [Clipmenud](https://github.com/cdown/clipmenu) usando o fzf
@@ -131,6 +127,10 @@ Lista senhas do gnu pass e digita/copia senha selecionada
 Implementação do askpass usando doas e o dmenu
 
 Dependencias: `expect`
+
+## dmenu run
+
+Abre programas com o dmenu, mostra informações quando usado com `dmenu_run info`
 
 ## dmenu browser
 
