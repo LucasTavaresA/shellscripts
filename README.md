@@ -90,10 +90,6 @@ Dependencia para cheatsheets: `cheat`
 
 Gera Lista teclas do sxhkd, Usando a variável `$WM` para descobrir o window manager
 
-## [fzf print](https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/maimpick)
-
-Varias formas de captura de tela usando o maim, com temporizador ajustável
-
 ## fzf sys
 
 Menu opções de sistema
@@ -131,6 +127,10 @@ Dependencias: `expect`
 ## dmenu run
 
 Abre programas com o dmenu, mostra informações quando usado com `dmenu_run info`
+
+## [dmenu print](https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/maimpick)
+
+Varias formas de captura de tela usando o maim, com temporizador ajustável
 
 ## dmenu browser
 
