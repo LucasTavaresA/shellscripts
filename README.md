@@ -30,7 +30,9 @@ Permite um controle mais preciso das funções do hersbtluftwm
 
 Checa updates e manda notificação caso existam mais de 30 updates pendentes
 
-**Necessário habilitar execução sem senha do comando que atualiza a lista de pacotes no doas,sudo,etc.**
+Dependencias pacman: pacman-contrib
+
+**Caso o sistema não use o pacman é necessário habilitar execução sem senha do comando que atualiza a lista de pacotes no doas,sudo,etc.**
 
 ## st_scratchpad
 
