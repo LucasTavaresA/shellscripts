@@ -12,6 +12,10 @@ Executa comandos **Não interativos** do stumpwm no terminal
 
 Edita todo o output do st no neovim
 
+## ediff
+
+Abre dois arquivos para editar no emacs mostrando suas diferenças
+
 ## lixo
 
 Script simples para gerenciamento de uma lixeira

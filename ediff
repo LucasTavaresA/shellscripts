@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+[ -f "$1" ] || { echo "Arquivo um não existe"; exit 1; }
+[ -f "$2" ] || { echo "Arquivo dois não existe"; exit 1; }
+[ -s "$1" ] || { echo "Arquivo um esta vazio"; exit 1; }
+[ -s "$2" ] || { echo "Arquivo dois esta vazio"; exit 1; }
+cmp --silent "$1" "$2" && { echo "Arquivos são o mesmo"; exit 1; }
+emacsclient -t --eval "(ediff-files \"$1\" \"$2\")"
