@@ -1,9 +1,7 @@
 xinitrc;~/.config/x11/xinitrc
 profile;~/.profile
 sh history;~/.config/shell/history
-fish;~/.config/fish/config.fish
-zsh;~/.config/shell/.zshrc
-bash;~/.config/shell/bashrc
+shell configs;~/.config/fish/config.fish ~/.config/shell/.zshrc ~/.config/shell/bashrc
 starship;~/.config/starship.toml
 doom emacs;~/.config/doom/config.el ~/.config/doom/init.el ~/.config/doom/packages.el
 nvim;~/.config/nvim/init.lua
@@ -36,5 +34,5 @@ dunst;~/.config/dunst/dunstrc
 gmail codes raposa;~/documentos/gmail-codes-raposaboladona.txt
 gmail codes lucas;~/documentos/gmail-codes-tavares.lassuncao.txt
 gmail codes ano;~/documentos/gmail-codes-anodelebandana.txt
-editar menu;~/code/shell/dmenu_edit
-editar lista;~/code/shell/listas/editar
+editar menu;~/code/shellscripts/dmenu_edit
+editar lista;~/code/shellscripts/listas/editar

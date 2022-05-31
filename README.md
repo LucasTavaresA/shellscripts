@@ -1,4 +1,4 @@
-# Scripts
+# Shellscripts
 
 ## [dpms-toggle](https://github.com/ramLlama/scripts/blob/master/dpms-toggle.sh)
 
@@ -70,7 +70,7 @@ Mostra porcentagem de volume e ícone que muda dependendo do volume
 
 ## stumpwm_barra
 
-Cria e atualiza um arquivo em shellscript mantendo a barra rápida
+Cria e atualiza um arquivo em shellscript mantendo a velocidade da barra
 
 ## doom_reset
 

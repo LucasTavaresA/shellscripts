@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-selecionado=$(cut -d ';' -f1 "$HOME/code/shell/listas/emojis" | uniq -u | fzf | sed "s/ .*//")
+selecionado=$(cut -d ';' -f1 "$HOME/code/shellscripts/listas/emojis" | uniq -u | fzf | sed "s/ .*//")
 
 # Sai caso nenhum é selecionado.
 [ -z "$selecionado" ] && exit

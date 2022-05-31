@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-caminho=$HOME/code/shell/listas/favoritos.yaml
+caminho=$HOME/code/shellscripts/listas/favoritos.yaml
 comando_tyaml="tyaml $caminho"
 prompt=$($comando_tyaml -k)
 caminho_atual="$prompt"

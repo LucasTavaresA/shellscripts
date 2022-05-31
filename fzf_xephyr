@@ -7,7 +7,7 @@ case "$(printf "stumpwm\\nherbstluftwm\\ndwm\\nbspwm\\nspectrwm\\noutro\\neditar
     "bspwm") wm="bspwm" ;;
     "spectrwm") wm="spectrwm" ;;
     "outro") wm=$(dmenu_path | fzf) ;;
-    "editar menu") $VISUAL "$HOME/code/shell/dmenu_xephyr" ;;
+    "editar menu") $VISUAL "$HOME/code/shellscripts/dmenu_xephyr" ;;
 esac
 # sai caso nada seja selecionado
 [ -z "$wm" ] && exit
