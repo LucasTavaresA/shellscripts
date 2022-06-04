@@ -1,0 +1,59 @@
+#!/usr/bin/env sh
+
+# Mensagem de ajuda
+Help() {
+   echo
+   echo "Abre o terminal na variável \$TERMINAL e adapta flags ao terminal usado"
+   echo
+   echo "Sintaxe: term_open <argumentos> [-e <argumentos>|-h|--help]"
+   echo
+   echo "Comando executado depende da quantidade de argumentos"
+   echo "Sem argumentos abre o terminal"
+   echo "Com um argumento abre o programa no terminal"
+   echo "Com dois argumentos abre um programa no terminal trocando o nome da instancia"
+   echo "Com três argumentos abre um programa no terminal trocando o nome da instancia e classe"
+   echo
+   echo "Necessário colocar arguentos do programa na frente de [-e]"
+   echo "Certo: term_open <instancia> <classe> <editor> -e <arquivo1> <arquivo2>"
+   echo "Errado: term_open <instancia> <classe> <editor> <arquivo1> <arquivo2>"
+   echo
+}
+
+while getopts ":h" option; do
+   case $option in
+      h)
+         Help
+         exit;;
+   esac
+done
+
+sep_args() {
+   args="$*" # instancia programa -e arquivo.txt main.c
+   term_args="${args%*-e *}" # instancia programa
+   term_count="$(echo "$term_args" | wc -w)" # 3
+   prog_args="${args#*-e *}" # arquivo.txt main.c
+}
+
+[ "$(echo "$@" | grep '\-e')" ] && sep_args "$@"
+
+if [ "$TERMINAL" = "alacritty" ]; then
+    if [ "$term_count" = 0 ] || [ "$#" = 0 ]; then
+        exec "$TERMINAL"
+    elif [ "$term_count" = 1 ] || [ "$#" = 1 ]; then
+        exec $TERMINAL -e $1 $prog_args
+    elif [ "$term_count" = 2 ] || [ "$#" = 2 ]; then
+        exec $TERMINAL --class $1 -e $2 $prog_args
+    elif [ "$term_count" -ge 3 ] || [ "$#" -ge 3 ]; then
+        exec $TERMINAL --class $1,$2 -e $3 $prog_args
+    fi
+elif [ "$TERMINAL" = "st" ]; then
+    if [ "$term_count" = 0 ] || [ "$#" = 0 ]; then
+        exec "$TERMINAL"
+    elif [ "$term_count" = 1 ] || [ "$#" = 1 ]; then
+        exec $TERMINAL -e $1 $prog_args
+    elif [ "$term_count" = 2 ] || [ "$#" = 2 ]; then
+        exec $TERMINAL -n $1 -e $2 $prog_args
+    elif [ "$term_count" -ge 3 ] || [ "$#" -ge 3 ]; then
+        exec $TERMINAL -n $1 -c $2 -e $3 $prog_args
+    fi
+fi

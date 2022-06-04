@@ -38,9 +38,14 @@ Dependencias pacman: pacman-contrib
 
 **Caso o sistema não use o pacman é necessário habilitar execução sem senha do comando que atualiza a lista de pacotes no doas,sudo,etc.**
 
+## term_open
+
+Abre o terminal na variável `$TERMINAL` e adapta flags ao terminal usado
+Mais detalhes usando `term_open -h` ou lendo a ajuda no código fonte
+
 ## term_scratchpad
 
-Implementação de scratchpads indenpendente de terminal e window manager
+Implementação de scratchpads independente de terminal e window manager
 
 Dependências: xdo, xdotool
 
@@ -90,7 +95,7 @@ Seleciona e copia um emoji com o fzf
 
 Abra manpages e cheatsheets com o fzf, necessário criar uma lista com `fzf_man update`
 
-Dependencia para cheatsheets: `cheat`
+Dependência para cheatsheets: `cheat`
 
 ## fzf_sxhkd
 
@@ -128,7 +133,7 @@ Lista senhas do gnu pass e digita/copia senha selecionada
 
 Implementação do askpass usando doas e o dmenu
 
-Dependencias: `expect`
+Dependências: `expect`
 
 ## dmenu run
 
