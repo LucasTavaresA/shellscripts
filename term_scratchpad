@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+set -x
+nvim_ids=$(xdotool search --name "nvim")
+[ -z "$nvim_ids" ] && term_ids=$(xdotool search --class "$TERMINAL")
+[ -n "$nvim_ids" ] && term_ids=$(xdotool search --class "$TERMINAL" | grep -v "$nvim_ids")
+
+if [ -z "$term_ids" ]; then
+    $TERMINAL
+else
+    if [ ! -f /tmp/hide_scratch ]; then
+        touch /tmp/hide_scratch && xdo hide $term_ids
+    elif [ -f /tmp/hide_scratch ]; then
+        rm /tmp/hide_scratch && xdo show $term_ids
+        [ "$WM" = "dwm" ] && dwmc inplacerotate +2
+        [ "$WM" = "herbstluftwm" ] && herbstclient use 2
+    fi
+fi

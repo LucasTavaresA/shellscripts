@@ -9,7 +9,9 @@ stumpwm;~/.config/stumpwm/config
 herbstluftwm;~/.config/herbstluftwm/autostart
 i3;~/.config/i3/config
 bspwm;~/.config/bspwm/bspwmrc
+ratpoison;~/.config/ratpoison/config
 spectrwm;~/.config/spectrwm/spectrwm.conf
+cagebreak;~/.config/cagebreak/config
 sxhkd dwm;~/.config/sxhkd/sxhkd_dwm
 sxhkd bspwm;~/.config/sxhkd/sxhkd_bspwm
 sxhkd nowm;~/.config/sxhkd/sxhkd_nowm

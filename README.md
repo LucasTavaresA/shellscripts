@@ -38,9 +38,9 @@ Dependencias pacman: pacman-contrib
 
 **Caso o sistema não use o pacman é necessário habilitar execução sem senha do comando que atualiza a lista de pacotes no doas,sudo,etc.**
 
-## st_scratchpad
+## term_scratchpad
 
-Implementação de scratchpads para o st
+Implementação de scratchpads indenpendente de terminal e window manager
 
 Dependências: xdo, xdotool
 
