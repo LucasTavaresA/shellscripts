@@ -93,9 +93,11 @@ Seleciona e copia um emoji com o fzf
 
 ## fzf_man
 
-Abra manpages e cheatsheets com o fzf, necessário criar uma lista com `fzf_man update`
+Abra manpages, cheatsheets e pesquisa na archwiki com o fzf, necessário criar/atualizar uma lista com `fzf_man update`
+Abre paginas da wiki como manpages
 
-Dependência para cheatsheets: `cheat`
+Dependências para cheatsheets: `cheat`
+Dependências para archwiki: `arch-wiki-man`
 
 ## fzf_sxhkd
 

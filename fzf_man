@@ -1,13 +1,28 @@
 #!/usr/bin/env sh
-# cria lista
-[ "$1" = "update" ] && $(man -k . > $HOME/.cache/dmenu_man && cheat -l >> $HOME/.cache/dmenu_man) && exit
 
-escolha=$(cat $HOME/.cache/dmenu_man | fzf)
+# atualiza listas
+update() {
+    man -k . > "$HOME/.cache/mans"
+    cheat -l > "$HOME/.cache/cheats"
+    awman-update
+    exit
+}
 
-if (echo $escolha | grep cheatsheets > /dev/null); then
-    # abre como cheatsheet
-    echo "$escolha" | cut -d' ' -f1 | sed "s/[^[:alpha:]]//g" | xargs cheat
-else
-    # abre como manpage
-    echo "$escolha" | cut -d' ' -f1 | sed "s/[^[:alpha:]]//g" | xargs man
-fi
+[ "$1" = "update" ] && update
+
+
+case $(printf "manpages\ncheatsheets\nwikipages" | fzf --header "Procurar por?") in
+    manpages)
+        escolha=$(cat "$HOME/.cache/mans" | fzf)
+        echo "$escolha" | cut -d' ' -f1 | sed "s/[^[:alpha:]]//g" | xargs man
+        ;;
+    cheatsheets)
+        escolha=$(cat "$HOME/.cache/cheats" | fzf)
+        echo "$escolha" | cut -d' ' -f1 | sed "s/[^[:alpha:]]//g" | xargs cheat
+        ;;
+    wikipages)
+        printf "Procurar na archwiki? " >&2
+        read -r pesquisado
+        awman -k "$pesquisado"
+        ;;
+esac
