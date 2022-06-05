@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
-set -x
+
+[ "$TERMINAL" = "st" ] && term_class=st-256color
 nvim_ids=$(xdotool search --name "nvim")
-[ -z "$nvim_ids" ] && term_ids=$(xdotool search --class "$TERMINAL")
-[ -n "$nvim_ids" ] && term_ids=$(xdotool search --class "$TERMINAL" | grep -v "$nvim_ids")
+[ -z "$nvim_ids" ] && term_ids=$(xdotool search --class "${term_class:-TERMINAL}")
+[ -n "$nvim_ids" ] && term_ids=$(xdotool search --class "${term_class:-TERMINAL}" | grep -v "$nvim_ids")
 
 if [ -z "$term_ids" ]; then
     $TERMINAL
