@@ -1,69 +1,72 @@
 #!/usr/bin/env sh
+[ "$#" = 0 ] && exec "$TERMINAL"
 
 # Mensagem de ajuda
 Help() {
    echo
    echo "Abre o terminal na variável \$TERMINAL e adapta flags ao terminal usado"
    echo
-   echo "Sintaxe: term_open <argumentos> [-e <argumentos>|-h|--help]"
+   echo "Sintaxe: term_open [-s] [-t titulo] [-i instancia] [-c classe] [-h|--help]"
    echo
-   echo "Comando executado depende da quantidade de argumentos"
    echo "Sem argumentos abre o terminal"
-   echo "Com um argumento abre o programa no terminal"
-   echo "Com dois argumentos abre um programa no terminal trocando o nome da instancia"
-   echo "Com três argumentos abre um programa no terminal trocando o nome da instancia e classe"
    echo
-   echo "Necessário colocar arguentos do programa na frente de [-e]"
-   echo "Certo: term_open <instancia> <classe> <editor> -e <arquivo1> <arquivo2>"
-   echo "Errado: term_open <instancia> <classe> <editor> <arquivo1> <arquivo2>"
+   echo "Uso:"
+   echo "   -s"
+   echo "       Separa o proceso do terminal, Requer terminal compatível"
+   echo "   -t"
+   echo "       Define o titulo do terminal"
+   echo "   -i"
+   echo "       Define a instancia do terminal"
+   echo "   -c"
+   echo "       Define a classe do terminal"
+   echo "   -h,--help"
+   echo "       Mostra essa ajuda e fecha"
    echo
+   exit
 }
 
-while getopts ":h" option; do
-   case $option in
-      h)
-         Help
-         exit;;
-   esac
+[ "$(echo "$@" | grep -e '\-h$' -e ' \-h ' -e '\-\-help$' -e ' \-\-help ')" ] && Help
+
+while getopts "s:t:i:c:" opt; do
+    case $opt in
+        s)
+            separar=1
+            ;;
+        t)
+            term_titulo="$OPTARG"
+            ;;
+        i)
+            term_instancia="$OPTARG"
+            ;;
+        c)
+            term_classe="$OPTARG"
+            ;;
+        \?)
+            echo "Opção invalida: -$OPTARG" >&2
+            exit 1
+            ;;
+        :)
+            echo "Opção -$OPTARG precisa de um argumento." >&2
+            exit 1
+            ;;
+    esac
 done
+shift $(($OPTIND - 1))
 
-sep_args() {
-   args="$*" # instancia programa -e arquivo.txt main.c
-   term_args="${args%*-e *}" # instancia programa
-   term_count="$(echo "$term_args" | wc -w)" # 2
-   prog_args="${args#*-e *}" # arquivo.txt main.c
-}
-
-[ "$(echo "$@" | grep '\-e')" ] && sep_args "$@"
-
-if [ "$TERMINAL" = "footclient" ]; then
-    if [ "$term_count" = 0 ] || [ "$#" = 0 ]; then
-        exec "$TERMINAL"
-    elif [ "$term_count" = 1 ] || [ "$#" = 1 ]; then
-        exec $TERMINAL -e $1 $prog_args
-    elif [ "$term_count" = 2 ] || [ "$#" = 2 ]; then
-        exec $TERMINAL -a $1 -e $2 $prog_args
-    elif [ "$term_count" -ge 3 ] || [ "$#" -ge 3 ]; then
-        exec $TERMINAL -a $1 -T $2 -e $3 $prog_args
-    fi
+if [ "$TERMINAL" = "footclient" ] || [ "$TERMINAL" = "foot" ]; then
+    [ "$separar" = 1 ] && term_args=" -N"
+    [ -n "$term_titulo" ] && foot_titulo=" -T $term_titulo"
+    [ -n "$term_classe" ] && foot_app_id=" -a $term_classe"
+    exec $TERMINAL$term_args$foot_titulo$foot_app_id -e "$@"
 elif [ "$TERMINAL" = "alacritty" ]; then
-    if [ "$term_count" = 0 ] || [ "$#" = 0 ]; then
-        exec "$TERMINAL"
-    elif [ "$term_count" = 1 ] || [ "$#" = 1 ]; then
-        exec $TERMINAL -e $1 $prog_args
-    elif [ "$term_count" = 2 ] || [ "$#" = 2 ]; then
-        exec $TERMINAL --class $1 -e $2 $prog_args
-    elif [ "$term_count" -ge 3 ] || [ "$#" -ge 3 ]; then
-        exec $TERMINAL --class $1,$2 -e $3 $prog_args
-    fi
+    [ -n "$term_instancia" ] && alacritty_instancia=" --class $term_instancia"
+    [ -n "$term_classe" ] && alacritty_classe=",$term_classe"
+    [ -n "$alacritty_classe" ] && alacritty_instancia=" --class ${alacritty_classe#*,}"
+    [ -n "$term_titulo" ] && alacritty_titulo=" -t $term_titulo"
+    exec $TERMINAL$alacritty_instancia$alacritty_classe$alacritty_titulo -e "$@"
 elif [ "$TERMINAL" = "st" ]; then
-    if [ "$term_count" = 0 ] || [ "$#" = 0 ]; then
-        exec "$TERMINAL"
-    elif [ "$term_count" = 1 ] || [ "$#" = 1 ]; then
-        exec $TERMINAL -e $1 $prog_args
-    elif [ "$term_count" = 2 ] || [ "$#" = 2 ]; then
-        exec $TERMINAL -n $1 -e $2 $prog_args
-    elif [ "$term_count" -ge 3 ] || [ "$#" -ge 3 ]; then
-        exec $TERMINAL -n $1 -c $2 -e $3 $prog_args
-    fi
+    [ -n "$term_titulo" ] && st_titulo=" -T $term_titulo"
+    [ -n "$term_instancia" ] && st_instancia=" -n $term_instancia"
+    [ -n "$term_classe" ] && st_classe=" -c $term_classe"
+    exec $TERMINAL$st_titulo$st_instancia$st_classe -e "$@"
 fi
