@@ -6,7 +6,7 @@ Help() {
    echo
    echo "Abre o terminal na variável \$TERMINAL e adapta flags ao terminal usado"
    echo
-   echo "Sintaxe: term_open [-s] [-t titulo] [-i instancia] [-c classe] [-h|--help]"
+   echo "Sintaxe: term_open [-s] [-a nome] [-t titulo] [-i instancia] [-c classe] [-h|--help]"
    echo
    echo "Sem argumentos abre o terminal"
    echo
@@ -19,6 +19,8 @@ Help() {
    echo "       Define a instancia do terminal"
    echo "   -c"
    echo "       Define a classe do terminal"
+   echo "   -a"
+   echo "       Define o titulo,instancia e classe do terminal com o mesmo valor"
    echo "   -h,--help"
    echo "       Mostra essa ajuda e fecha"
    echo
@@ -27,10 +29,15 @@ Help() {
 
 [ "$(echo "$@" | grep -e '\-h$' -e ' \-h ' -e '\-\-help$' -e ' \-\-help ')" ] && Help
 
-while getopts "s:t:i:c:" opt; do
+while getopts "s:a:t:i:c:" opt; do
     case $opt in
         s)
             separar=1
+            ;;
+        a)
+            term_titulo="$OPTARG"
+            term_instancia="$OPTARG"
+            term_classe="$OPTARG"
             ;;
         t)
             term_titulo="$OPTARG"
