@@ -30,13 +30,23 @@ done
 sep_args() {
    args="$*" # instancia programa -e arquivo.txt main.c
    term_args="${args%*-e *}" # instancia programa
-   term_count="$(echo "$term_args" | wc -w)" # 3
+   term_count="$(echo "$term_args" | wc -w)" # 2
    prog_args="${args#*-e *}" # arquivo.txt main.c
 }
 
 [ "$(echo "$@" | grep '\-e')" ] && sep_args "$@"
 
-if [ "$TERMINAL" = "alacritty" ]; then
+if [ "$TERMINAL" = "footclient" ]; then
+    if [ "$term_count" = 0 ] || [ "$#" = 0 ]; then
+        exec "$TERMINAL"
+    elif [ "$term_count" = 1 ] || [ "$#" = 1 ]; then
+        exec $TERMINAL -e $1 $prog_args
+    elif [ "$term_count" = 2 ] || [ "$#" = 2 ]; then
+        exec $TERMINAL -a $1 -e $2 $prog_args
+    elif [ "$term_count" -ge 3 ] || [ "$#" -ge 3 ]; then
+        exec $TERMINAL -a $1 -T $2 -e $3 $prog_args
+    fi
+elif [ "$TERMINAL" = "alacritty" ]; then
     if [ "$term_count" = 0 ] || [ "$#" = 0 ]; then
         exec "$TERMINAL"
     elif [ "$term_count" = 1 ] || [ "$#" = 1 ]; then
