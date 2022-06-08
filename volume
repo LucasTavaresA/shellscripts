@@ -1,19 +1,19 @@
 #!/usr/bin/env sh
 
 [ "$1" = "semicones" ] && printf "%s" "$(amixer sget Master | grep -m 1 -o '\[.*%\]')" && exit 0
-[ "$(pacmd list-sinks | grep muted: | cut -d' ' -f2)" = yes ] && printf "婢" && exit 0
+[ "$(pacmd list-sinks | grep muted: | cut -d' ' -f2)" = yes ] && printf "🔇" && exit 0
 
 vol="$(amixer sget Master | grep -m 1 '\[.*%\]' | awk -F'[][]' '{ print $2 }' | cut -d'%' -f1)"
 
 if [ "$vol" -gt "65" ]; then
-	icon=""
+	icon="🔊"
 	printf "%s %s%%" "$icon" "$vol"
 elif [ "$vol" -gt "45" ]; then
-	icon="墳"
+	icon="🔉"
 	printf "%s %s%%" "$icon" "$vol"
 elif [ "$vol" -gt "1" ]; then
-	icon=""
+	icon="🔈"
 	printf "%s %s%%" "$icon" "$vol"
 elif [ "$vol" = "0" ]; then
-	printf "婢"
+	printf "🔇"
 fi
