@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-print_nome="print_$(date '+%d_%H:%M:%S').png"
-visualizar=$(nsxiv "$HOME/$print_nome")
+print_nome="print_$(date '+%d_%H:%M').png"
+visualizar="nsxiv $HOME/$print_nome"
 
 case "$(printf "uma area selecionada\\njanela atual\\ntela cheia (Temporizar)\\numa area selecionada (copiar)\\njanela atual (copiar)\\ntela cheia (Temporizar) (copiar)" | dmenu -a -l 35 -h 20 -c -cw 100 -p "Area do print?")" in
     "uma area selecionada")

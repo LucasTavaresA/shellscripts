@@ -12,6 +12,10 @@ Executa comandos **Não interativos** do stumpwm no terminal
 
 Edita todo o output do st no neovim
 
+## wayland print
+
+Varias formas de captura de tela para wayland usando o grimshot, com temporizador ajustável
+
 ## ediff
 
 Abre dois arquivos para editar no emacs mostrando suas diferenças
