@@ -2,8 +2,11 @@
 
 # Autenticação utilizada
 # Exemplo: sudo -A ou doas --
+set -x
 auth="doas_askpass"
-dmenu="dmenu -a -l 35 -h 20 -c -cw 300"
+menu="dmenu -a -l 35 -h 20 -c -cw 300 -p"
+[ "$XDG_SESSION_TYPE" = "wayland" ] && menu="fuzzel -d -I --terminal=term_open -x 0 -y 0 -p 0 -b 000000ff \
+    -t ffffffff -m ff0000ff -S 000000ff -B 1 -r 0 -C ffffffff --show-actions -f Terminus:size=16 -P"
 
 #config
 mount_dir="/tmp"
@@ -13,7 +16,7 @@ desmontar() {
     select=$(grep "/mnt\|$mount_dir/" /proc/self/mounts \
         | cut -d " " -f2 \
         | sort \
-        | $dmenu -p "desmontar" \
+        | $menu "desmontar" \
     )
 
     [ -n "$select" ] \
@@ -28,7 +31,7 @@ desmontar() {
 montar_usb() {
     select="$(lsblk -rpo "name,type,size,mountpoint" \
         | awk '{ if ($2=="part"&&$4=="" || $2=="rom"&&$4=="" || $3=="1,4M"&&$4=="") printf "%s (%s)\n",$1,$3}' \
-        | $dmenu -p "禍 montar usb" \
+        | $menu "montar usb" \
         | cut -d " " -f1)"
 
     [ -z "$select" ] \
@@ -54,7 +57,7 @@ montar_usb() {
                 ;;
             esac \
         && notify-send \
-            "禍 montar usb $partition_type" \
+            "montar usb $partition_type" \
             "$select montado em $mount_point"
 }
 
@@ -68,7 +71,7 @@ montar_iso() {
             -iname "*.mdf" -o \
             -iname "*.nrg" \
         | cut -d / -f 5 \
-        | $dmenu -p "﫭 montar iso" \
+        | $menu "montar iso" \
     )
 
     [ -z "$select" ] \
@@ -81,14 +84,14 @@ montar_iso() {
         && mkdir "$mount_point"
     $auth mount -o loop "$search/$select" "$mount_point" \
     && notify-send \
-    "﫭 montar iso" \
+    "montar iso" \
     "$select montado em $mount_point"
 }
 
 # montar android
 montar_android() {
     select=$(simple-mtpfs -l 2>/dev/null \
-        | $dmenu -p " montar android" \
+        | $menu "montar android" \
         | cut -d ":" -f1 \
     )
 
@@ -101,28 +104,28 @@ montar_android() {
         && mkdir "$mount_point" \
         && simple-mtpfs --device "$select" "$mount_point" \
         && notify-send \
-            " montar android" \
+            "montar android" \
             "$select montado em $mount_point"
 }
 
 # menu
 case $(printf "%s\n" \
     "desmontar" \
-    "禍 montar usb" \
-    "﫭 montar iso" \
-    " montar android" \
-    | $dmenu \
+    "montar usb" \
+    "montar iso" \
+    "montar android" \
+    | $menu "" \
     ) in
     "desmontar")
         desmontar
         ;;
-    "禍 montar usb")
+    "montar usb")
         montar_usb
         ;;
-    "﫭 montar iso")
+    "montar iso")
         montar_iso
         ;;
-    " montar android")
+    "montar android")
         montar_android
         ;;
 esac

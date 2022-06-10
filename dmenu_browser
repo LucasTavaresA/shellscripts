@@ -1,9 +1,12 @@
 #!/usr/bin/env sh
 
-caminho=$HOME/code/shellscripts/listas/favoritos.yaml
+caminho="$HOME/code/shellscripts/listas/favoritos.yaml"
 comando_tyaml="tyaml $caminho"
 prompt=$($comando_tyaml -k)
 caminho_atual="$prompt"
+menu="dmenu -l 35 -h 20 -c -cw 300 -p"
+[ "$XDG_SESSION_TYPE" = "wayland" ] && menu="fuzzel -d -I --terminal=term_open -x 0 -y 0 -p 0 -b 000000ff \
+    -t ffffffff -m ff0000ff -S 000000ff -B 1 -r 0 -C ffffffff --show-actions -f Terminus:size=16 -P"
 
 checar_sub_item () {
     selecionada=$1
@@ -25,7 +28,7 @@ checar_sub_item () {
 }
 
 mostrar_items () {
-    tag_selecionada=$($comando_tyaml -k "$caminho_atual" | dmenu -l 35 -h 20 -c -cw 300 -p " $prompt:")
+    tag_selecionada=$($comando_tyaml -k "$caminho_atual" | $menu "🌟 $prompt:")
     [ -z "$tag_selecionada" ] || checar_sub_item "$tag_selecionada"
 }
 

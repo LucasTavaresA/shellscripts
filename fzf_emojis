@@ -1,7 +1,10 @@
 #!/usr/bin/env sh
+copy="xclip -selection clipboard"
+[ "$XDG_SESSION_TYPE" = "wayland" ] && copy="wl-copy"
+
 selecionado=$(cut -d ';' -f1 "$HOME/code/shellscripts/listas/emojis" | uniq -u | fzf | sed "s/ .*//")
 
 # Sai caso nenhum é selecionado.
 [ -z "$selecionado" ] && exit
 
-echo -n "$selecionado" | xclip -selection clipboard && notify-send -i emoji "'$selecionado' copiado."
+printf "%s" "$selecionado" | $copy && notify-send -i emoji "'$selecionado' copiado."
