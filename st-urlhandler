@@ -11,9 +11,9 @@ urls="$(sed 's/.*│//g' | tr -d '\n' |
 [ -z "$urls" ] && exit 1
 
 while getopts "hoc" o; do case "${o}" in
-	h) printf "Argumentos customizados:\\n  -c: copiar\\n  -o: xdg-open\\n  -h: Mostrar essa mensagem\\n" && exit 1 ;;
+	h) printf "Argumentos customizados:\\n  -c: copiar\\n  -o: $BROWSER\\n  -h: Mostrar essa mensagem\\n" && exit 1 ;;
 	o) chosen="$(echo "$urls" | dmenu -h 20 -p 'Abrir qual url?' -l 30)"
-	setsid xdg-open "$chosen" >/dev/null 2>&1 & ;;
+	setsid $BROWSER "$chosen" >/dev/null 2>&1 & ;;
 	c) echo "$urls" | dmenu -h 20 -p 'Copiar qual url?' -l 30 | tr -d '\n' | xclip -selection clipboard ;;
 	*) printf "Opção invalida: -%s\\n" "$OPTARG" && exit 1 ;;
 esac done

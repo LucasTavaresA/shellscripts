@@ -21,8 +21,8 @@ polybar;~/.config/polybar/config.ini
 lf;~/.config/lf/lfrc
 zathura;~/.config/zathura/zathurarc
 qutebrowser config;~/.config/qutebrowser/config.py ~/.config/qutebrowser/autoconfig.yml
-qutebrowser css;~/.config/qutebrowser/styles/custom-solarized-dark.css ~/.config/qutebrowser/styles/dark.css
 qutebrowser quickmarks;~/.config/qutebrowser/quickmarks
+qutebrowser css;~/.config/qutebrowser/stylemap.py ~/.config/qutebrowser/styles/custom-solarized-dark.css ~/.config/qutebrowser/styles/dark.css
 picom;~/.config/picom/picom.conf
 xresources;~/.config/x11/xresources
 alacritty;~/.config/alacritty/alacritty.yml
