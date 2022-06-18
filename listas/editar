@@ -1,3 +1,4 @@
+abrir editor;abrir editor
 xinitrc;~/.config/x11/xinitrc
 profile;~/.profile
 sh history;~/.config/shell/history

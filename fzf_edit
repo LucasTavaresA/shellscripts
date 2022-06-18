@@ -3,6 +3,7 @@
 lista="$HOME/code/shellscripts/listas/editar"
 selecionado=$(cut -d';' -f1 "$lista" | fzf --prompt=" Editar:")
 [ -z "$selecionado" ] && exit 0 # Sai caso nada seja selecionado
+[ "$selecionado" = "abrir editor" ] && eval "$VISUAL" && exit
 arquivo=$(grep -m 1 "$selecionado" "$lista" | cut -d';' -f2)
 extensao="${arquivo##*.}"
 
