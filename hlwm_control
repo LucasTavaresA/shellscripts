@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 if [ "$1" = "picom" ]; then
-    pkill picom || picom
+    pkill -x picom || picom -b --unredir-if-possible --backend xr_glx_hybrid --vsync --use-damage --glx-no-stencil
 fi
 if [ "$1" = "estado" ]; then
     herbstclient lock
