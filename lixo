@@ -36,7 +36,7 @@ if [ -e "$CACHE_FILE" ]; then
     quantia=$(cat "$CACHE_FILE")
     quantia=$((quantia+1))
     echo $quantia > "$CACHE_FILE"
-    [ "$(cat "$CACHE_FILE")" -gt 5 ] && \
+    [ "$quantia" -gt 5 ] && \
         echo "Limpe a sua lixeira!" && notify-send -u critical "Lixeira" "Limpe a sua lixeira!" && return
 else
     touch "$CACHE_FILE"
