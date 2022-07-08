@@ -1,10 +1,10 @@
 abrir editor;abrir editor
 xinitrc;~/.config/x11/xinitrc
 profile;~/.profile
-sh history;~/.config/shell/history
-shell configs;~/.config/fish/config.fish ~/.config/shell/.zshrc ~/.config/shell/bashrc
+shell config;~/.config/fish/config.fish ~/.config/shell/.zshrc ~/.config/shell/bashrc
+shell history;~/.local/share/fish/fish_history ~/.config/shell/history
 starship;~/.config/starship.toml
-doom emacs;~/.config/doom/config.el ~/.config/doom/init.el ~/.config/doom/packages.el
+emacs config;~/.config/emacs/init.el
 nvim;~/.config/nvim/init.lua
 stumpwm;~/.config/stumpwm/config
 herbstluftwm;~/.config/herbstluftwm/autostart
@@ -16,8 +16,7 @@ cagebreak;~/.config/cagebreak/config
 sxhkd dwm;~/.config/sxhkd/sxhkd_dwm
 sxhkd bspwm;~/.config/sxhkd/sxhkd_bspwm
 sxhkd nowm;~/.config/sxhkd/sxhkd_nowm
-git ignore;~/.config/git/ignore
-git config;~/.config/git/config
+git;~/.config/git/ignore ~/.config/git/config ~/.gitmodules
 polybar;~/.config/polybar/config.ini
 lf;~/.config/lf/lfrc
 zathura;~/.config/zathura/zathurarc
