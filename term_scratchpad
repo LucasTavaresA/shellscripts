@@ -1,17 +1,15 @@
 #!/usr/bin/env sh
 
-[ "$TERMINAL" = "st" ] && term_class=St
-nvim_ids=$(xdotool search --name "nvim")
-[ -z "$nvim_ids" ] && term_ids=$(xdotool search --class "^${term_class:-TERMINAL}$")
-[ -n "$nvim_ids" ] && term_ids=$(xdotool search --class "^${term_class:-TERMINAL}$" | grep -v "$nvim_ids")
+[ "$TERMINAL" = "st" ] && term_class=st-256color
+ids=$(xdotool search "${term_class:-TERMINAL}")
 
-if [ -z "$term_ids" ]; then
+if [ -z "$ids" ]; then
     $TERMINAL
 else
     if [ ! -f /tmp/hide_scratch ]; then
-        touch /tmp/hide_scratch && xdo hide $term_ids
+        touch /tmp/hide_scratch && xdo hide $ids
     elif [ -f /tmp/hide_scratch ]; then
-        rm /tmp/hide_scratch && xdo show $term_ids
+        rm /tmp/hide_scratch && xdo show $ids
         [ "$WM" = "dwm" ] && dwmc inplacerotate +2
     fi
 fi
