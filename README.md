@@ -107,10 +107,6 @@ Menu opções de sistema
 
 **Necessário habilitar execução sem senha do comando para desligar/reiniciar no doas,sudo,etc.**
 
-## fzf edit
-
-Abre uma lista de arquivos para editar no programa especificado como `$VISUAL`
-
 ## fzf xephyr
 
 Abre aplicações xorg com o xephyr
