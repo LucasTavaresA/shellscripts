@@ -77,10 +77,6 @@ Mostra porcentagem de volume e ícone que muda dependendo do volume
 
 Cria e atualiza um arquivo em shellscript mantendo a velocidade da barra
 
-## doom_reset
-
-Fecha o emacsclient, sincroniza configurações do doom e reabre o emacsclient
-
 # fzf
 
 ## fzf_emojis

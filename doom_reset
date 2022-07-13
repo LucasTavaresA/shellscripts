@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-
-emacsclient -e '(kill-emacs)'
-sleep 5
-doom sync
-emacs --daemon
