@@ -141,12 +141,6 @@ Abre programas com o dmenu, mostra informações quando usado com `dmenu_run inf
 
 Varias formas de captura de tela usando o maim, com temporizador ajustável
 
-## dmenu browser
-
-Menu de favoritos e pesquisa
-
-Dependências: [tyaml](https://github.com/TinyToolSH/)
-
 ## dmenu mont
 
 Monta e desmonta drives e isos
