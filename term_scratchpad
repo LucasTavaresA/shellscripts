@@ -13,6 +13,5 @@ else
     elif [ -f /tmp/hide_scratch ]; then
         rm /tmp/hide_scratch && xdo show $term_ids
         [ "$WM" = "dwm" ] && dwmc inplacerotate +2
-        [ "$WM" = "herbstluftwm" ] && herbstclient use 2
     fi
 fi
