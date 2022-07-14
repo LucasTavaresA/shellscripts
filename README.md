@@ -20,6 +20,10 @@ Varias formas de captura de tela para wayland usando o grimshot, com temporizado
 
 Abre dois arquivos para editar no emacs mostrando suas diferenças
 
+emacs_reset
+
+Reinicia o emacsclient
+
 ## lixo
 
 Script simples para gerenciamento de uma lixeira
