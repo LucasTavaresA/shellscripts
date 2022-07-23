@@ -137,7 +137,7 @@ Dependências: `expect`
 
 Ver arquivos org-mode usando dmenu e abre links para editar, executar ou abrir no navegador
 
-[exemplo.org](https://github.com/LucasTavaresA/shellscripts/blob/main/exemplo.org)
+[exemplo.org](https://raw.githubusercontent.com/LucasTavaresA/shellscripts/main/exemplo.org)
 
 `org_dmenu ./exemplo.org`
 
