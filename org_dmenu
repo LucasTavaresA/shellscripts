@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+# TODO: Navegar por headings
+items=$(cat "$1" | sed -e "s/\[\[.*\]\[//" -e "s/\]\]\$//")
+selecionado=$(printf "%s" "$items" | dmenu -n 4 -a -c -cw 100 -l 20 -h 20)
+
+[ -z "$selecionado" ] && exit
+
+if link=$(grep -m 1 "^.*\]\[${selecionado#* }\]\]\$" "$1"); then
+    link="${link#*\[\[}"
+    link="${link%%\]*}"
+
+    [ -x "$(which $link)" ] && eval exec "$(which $link)"
+
+    if echo "$link" | grep -m 1 -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*"; then
+        exec $BROWSER "$link"
+    fi
+
+    eval exec $VISUAL "$link"
+fi
+
+eval exec "$selecionado"

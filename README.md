@@ -133,6 +133,16 @@ Implementação do askpass usando doas e o dmenu
 
 Dependências: `expect`
 
+## org dmenu
+
+Ver arquivos org-mode usando dmenu e abre links para editar, executar ou abrir no navegador
+
+[exemplo.org](https://github.com/LucasTavaresA/shellscripts/blob/main/exemplo.org)
+
+`org_dmenu ./exemplo.org`
+
+Para fazer: Navegar usando as headers
+
 ## dmenu run
 
 Abre programas com o dmenu, mostra informações quando usado com `dmenu_run info`
