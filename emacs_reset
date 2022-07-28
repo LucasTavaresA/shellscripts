@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
 emacsclient -e '(kill-emacs)'
-pkill emacs
 sleep 3
 emacs --daemon
