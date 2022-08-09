@@ -1,4 +1,12 @@
-* Favoritos
-** [[dmenu_pesquisar][pesquisar]]
-** [[./exemplo.org][editar lista]]
+#+TITLE Exemplo
+#+STARTUP: folded
+
+* [[dmenu_pesquisar][pesquisar]]
+* [[./exemplo.org][editar lista]]
+* Software
 ** [[https://gnu.org/][gnu]]
+** Github
+*** [[https://github.com/LucasTavaresA][meu github]]
+*** [[https://github.com/LucasTavaresA/dotfiles][dotfiles]]
+* nuvem
+** [[https://mega.nz/][mega]]

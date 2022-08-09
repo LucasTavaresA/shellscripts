@@ -131,13 +131,11 @@ Dependências: `expect`
 
 ## org dmenu
 
-Ver arquivos org-mode usando dmenu e abre links para editar, executar ou abrir no navegador
+Menus agrupados usando arquivos org mode e o dmenu, abre links para editar, executar ou abre no navegador
 
 [exemplo.org](https://raw.githubusercontent.com/LucasTavaresA/shellscripts/main/exemplo.org)
 
-`org_dmenu ./exemplo.org`
-
-Para fazer: Navegar usando as headers
+teste: `org_dmenu ./exemplo.org`
 
 ## dmenu run
 
