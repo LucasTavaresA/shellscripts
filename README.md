@@ -115,17 +115,17 @@ Lista senhas do gnu pass e digita/copia senha selecionada
 
 ## [doas_askpass](https://noxz.tech/articles/askpass_implementation_for_doas/)
 
-Implementação do askpass usando doas e o dmenu
+Implementação do askpass usando doas
 
 Dependências: `expect`
 
-## org dmenu
+## orgmenu
 
-Menus agrupados usando arquivos org mode e o dmenu, abre links para editar, executar ou abre no navegador
+Menus agrupados usando arquivos org mode, abre links para editar, executar ou abre no navegador
 
 [exemplo.org](https://raw.githubusercontent.com/LucasTavaresA/shellscripts/main/exemplo.org)
 
-teste: `org_dmenu ./exemplo.org`
+teste: `orgmenu ./exemplo.org`
 
 ## dmenu run
 

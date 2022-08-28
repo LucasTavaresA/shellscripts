@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+menu="dmenu -a -c -cw 100 -l 20 -h 20"
+[ "$XDG_SESSION_TYPE" = "wayland" ] && menu="fuzzel -d -I --terminal=term_open -x 0 -y 0 -p 0 -b 000000ff \
+    -t ffffffff -m ff0000ff -S 000000ff -B 1 -r 0 -C ffffffff --show-actions -f Terminus:size=16"
+
 texto=$(cat "$1" | grep "^*")
 links=$(echo "$texto" | sed -e "s/^.*\[\[//" -e "s/\]\[.*\]\]\$//")
 headers=$(echo "$texto" | sed -e "s/\[\[.*\]\[//" -e "s/\]\]\$//")
@@ -8,7 +12,7 @@ escopo="$headers"
 x=0
 while [ "$x" = 0 ]
 do
-    header=$(echo "$escopo" | sed "/^$profundidade /!d" | dmenu -a -c -cw 100 -l 20 -h 20)
+    header=$(echo "$escopo" | sed "/^$profundidade /!d" | $menu)
     header=$(printf '%q' "$header")
     [ -z "$header" ] && exit
     numl=$(echo "$headers" | sed -n "/^$header\$/=")
