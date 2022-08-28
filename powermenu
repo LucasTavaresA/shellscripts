@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    menu="fuzzel -d -l 2 -x 0 -y 0 -b 990000ff -t ffff00ff -m ffff00ff -s ff5500ff -S ffff00ff -B 1 -r 0 -C ff0000ff -f Terminus:size=18"
+    opcoes="Reiniciar\\nDesligar"
+else
+    menu="dmenu -a -l 3 -h 20 -c -cw 300"
+    opcoes="Desligamento de tela\\nReiniciar\\nDesligar"
+fi
+
+if [ "$OS" = "artixlinux" ]; then
+    reiniciar="loginctl reboot"
+    desligar="loginctl poweroff"
+elif [ "$OS" = "voidlinux" ]; then
+    reiniciar="doas reboot"
+    desligar="doas poweroff"
+elif [ "$OS" = "archlinux" ] || [ "$OS" = "manjaro" ]; then
+    reiniciar="systemctl reboot"
+    desligar="systemctl poweroff"
+fi
+
+case "$(printf "$opcoes" | $menu)" in
+    "Desligamento de tela") dpms-toggle.sh ;;
+    "Reiniciar") $reiniciar ;;
+    "Desligar") $desligar ;;
+esac

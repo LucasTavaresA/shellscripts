@@ -99,11 +99,9 @@ Dependências para archwiki: `arch-wiki-man`
 
 Gera Lista teclas do sxhkd, Usando a variável `$WM` para descobrir o window manager
 
-## fzf sys
+## powermenu
 
-Menu opções de sistema
-
-**Usando a variável `$WM` para descobrir o window manager**
+Menu opções de energia
 
 **Necessário habilitar execução sem senha do comando para desligar/reiniciar no doas,sudo,etc.**
 
