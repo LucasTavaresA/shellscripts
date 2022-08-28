@@ -107,10 +107,6 @@ Menu opções de sistema
 
 **Necessário habilitar execução sem senha do comando para desligar/reiniciar no doas,sudo,etc.**
 
-## fzf xephyr
-
-Abre aplicações xorg com o xephyr
-
 # dmenu
 
 **Lembre-se de mudar as flags caso for usar os scripts em uma outra build do dmenu**
