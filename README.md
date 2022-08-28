@@ -135,14 +135,14 @@ Abre programas com o dmenu, mostra informações quando usado com `dmenu_run inf
 
 Varias formas de captura de tela usando o maim, com temporizador ajustável
 
-## dmenu mont
+## menu mont
 
 Monta e desmonta drives e isos
 
-## dmenu pass
+## menu pass
 
 Frontend para senhas
 
-## dmenu pesquisar
+## menu pesquisar
 
 Abre uma lista de engines para pesquisa usando "aliases" como no qutebrowser

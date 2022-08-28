@@ -43,7 +43,7 @@ editarmenu" | $menu "🔍 Pesquisar:")
 procurado=${pesquisa#* }
 
 case $pesquisa in
-    editarmenu) $VISUAL "$HOME/code/shellscripts/dmenu_pesquisar" ;;
+    editarmenu) $VISUAL "$HOME/code/shellscripts/menu_pesquisar" ;;
     aw)    site="https://wiki.archlinux.org/" nome="archwiki" ;;
     al)    site="https://anilist.co/user/Lucastavares/animelist" nome="animelist" ;;
     alm)   site="https://anilist.co/user/Lucastavares/mangalist" nome="mangalist" ;;
