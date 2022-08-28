@@ -1,5 +1,9 @@
 # Shellscripts
 
+**Lembre-se de mudar as flags caso for usar os scripts em uma outra build do dmenu**
+
+**Recomendo modificar/analizar os scripts ao seu gosto, ou ver/entender como eles funcionam antes de usa-los**
+
 ## [dpms-toggle](https://github.com/ramLlama/scripts/blob/master/dpms-toggle.sh)
 
 Ativa/Desativa desligamento automático do monitor
@@ -10,7 +14,7 @@ Executa comandos **Não interativos** do stumpwm no terminal
 
 ## [st-edittext](https://st.suckless.org/patches/externalpipe/editscreen.sh)
 
-Edita todo o output do st no neovim
+Edita todo o output do st no emacs
 
 ## wayland print
 
@@ -27,8 +31,6 @@ Script simples para gerenciamento de uma lixeira
 ## polybar_herbstluftwm
 
 Mostra layout atual e numero de janelas quando em tela cheia
-
-**Funciona apenas no herbstluftwm**
 
 ## checar_updates
 
@@ -47,7 +49,7 @@ Mais detalhes usando `term_open -h` ou lendo a ajuda no código fonte
 
 Implementação de scratchpads independente de terminal e window manager
 
-Dependências: xdo, xdotool
+Dependências: xdo, xdotool, Xorg/X11
 
 ## ajustar_tamanho.sh
 
@@ -75,9 +77,7 @@ Mostra porcentagem de volume e ícone que muda dependendo do volume
 
 ## stumpwm_barra
 
-Cria e atualiza um arquivo em shellscript mantendo a velocidade da barra
-
-# fzf
+Cria e atualiza um arquivo em shellscript, mantendo a velocidade da barra
 
 ## fzf_emojis
 
@@ -106,10 +106,6 @@ Menu opções de sistema
 **Usando a variável `$WM` para descobrir o window manager**
 
 **Necessário habilitar execução sem senha do comando para desligar/reiniciar no doas,sudo,etc.**
-
-# dmenu
-
-**Lembre-se de mudar as flags caso for usar os scripts em uma outra build do dmenu**
 
 ## [st-scripts](https://st.suckless.org/patches/externalpipe/)
 
