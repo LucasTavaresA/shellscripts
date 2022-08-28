@@ -9,9 +9,11 @@ if [[ $1 == "--type" ]]; then
 fi
 
 if [[ -n $WAYLAND_DISPLAY ]]; then
-	dmenu=dmenu-wl
-	type="ydotool type --file -"
+    menu="fuzzel -d -I --terminal=term_open -x 0 -y 0 -p 0 -b 000000ff \
+                 -t ffffffff -m ff0000ff -S 000000ff -B 1 -r 0 -C ffffffff --show-actions -f Terminus:size=16"
+	type="wtype -"
 elif [[ -n $DISPLAY ]]; then
+    menu="dmenu -a -c -l 18 -g 2 -h 20"
 	type="xdotool type --clearmodifiers --file -"
 else
 	echo "Error: No Wayland or X11 display detected" >&2
@@ -23,7 +25,7 @@ password_files=( "$prefix"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
-password=$(printf '%s\n' "${password_files[@]}" | dmenu -a -c -l 18 -g 2 -h 20 "$@")
+password=$(printf '%s\n' "${password_files[@]}" | $menu "$@")
 
 [[ -n $password ]] || exit
 
