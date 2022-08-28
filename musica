@@ -14,5 +14,10 @@ arquivo=${caminho##*/} # musica.mp3
 nome=${arquivo%.*} # musica
 nome_curto=$(echo "$nome" | cut -c -40) # mus.. 40 caracteres
 
+# posição na playlist
+pos="$(mpc | grep -C 1 -o '[[:digit:]]*/[[:digit:]]* ')" # 10/25
+
 [ "$(echo "$@" | grep notificar)" ] && notify-send Tocando "$nome"
-[ "$(echo "$@" | grep tocando)" ] && printf "%s" "$nome_curto"
+[ "$(echo "$@" | grep tocando)" ] && printf "%s %s" "$nome_curto" "$pos"
+
+exit 0

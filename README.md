@@ -67,9 +67,11 @@ Gera números aleatórios ate ser cancelado
 
 ## musica
 
-Separa nome do arquivo tocando
+Separa nome da musica tocando no mpd e a posição da musica na playlist
 
-Notifica com `musica notificar`, Retorna nome se usado com `musica tocando`
+Notifica com `musica notificar`, Retorna nome e posição se usado com `musica tocando`
+
+Troca de musica com `musica ante e musica prox`
 
 ## volume
 
