@@ -13,11 +13,9 @@ if [ "$1" = "limpar" ]; then
     old_stty_cfg=$(stty -g)
     stty raw -echo ; resposta=$(head -c 1) ; stty "$old_stty_cfg"
     if echo "$resposta" | grep -iq "^y" ;then
-        rm -rf $TRASH_FOLDER/* >/dev/null 2>&1
-        rm -rf $TRASH_FOLDER/.* >/dev/null 2>&1
-        rm -f "$CACHE_FILE" >/dev/null 2>&1
-        printf "\nLixeira limpa!"
-        exit
+       doas rm -rf $TRASH_FOLDER/* $TRASH_FOLDER/.* "$CACHE_FILE" >/dev/null 2>&1
+       printf "\nLixeira limpa!"
+       exit
     fi
     exit
 fi
@@ -37,7 +35,7 @@ if [ -e "$CACHE_FILE" ]; then
     quantia=$((quantia+1))
     echo $quantia > "$CACHE_FILE"
     [ "$quantia" -gt 5 ] && \
-        echo "Limpe a sua lixeira!" && notify-send -u critical "Lixeira" "Limpe a sua lixeira!" && return
+        echo "Limpe a sua lixeira!" && notify-send -u normal "Lixeira" "Limpe a sua lixeira!" && return
 else
     touch "$CACHE_FILE"
     echo 1 > "$CACHE_FILE"
