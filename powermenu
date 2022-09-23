@@ -8,10 +8,7 @@ else
     opcoes="Desligamento de tela\\nReiniciar\\nDesligar"
 fi
 
-if [ "$OS" = "artixlinux" ]; then
-    reiniciar="loginctl reboot"
-    desligar="loginctl poweroff"
-elif [ "$OS" = "voidlinux" ]; then
+if [ "$OS" = "artixlinux" ] || [ "$OS" = "voidlinux" ]; then
     reiniciar="doas reboot"
     desligar="doas poweroff"
 elif [ "$OS" = "archlinux" ] || [ "$OS" = "manjaro" ]; then
