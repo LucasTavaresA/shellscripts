@@ -1,0 +1,88 @@
+#!/usr/bin/env sh
+
+heading () {
+    echo
+    cols=$(tput cols)
+    center=$((cols/2))
+    header="$1"
+    headersize="${#header}"
+    indent=$((center-(headersize/2)))
+    meio=0
+
+    i=0
+    while [ $i -lt $cols ]; do
+        if [ $i -lt $indent ]; then
+            col="${col}─"
+        elif [ $i -gt $((indent+2+headersize)) ]; then
+            col="${col}─"
+        elif [ $meio = 0 ]; then
+            col="${col} $header "
+            meio=1
+        fi
+
+        i=$((i+1))
+    done
+
+    echo "$col"
+    col=""
+    echo
+}
+
+if [ "$OS" = "archlinux" ] || [ "$OS" = "artixlinux" ] || [ "$OS" = "manjaro" ] || [ "$OS" = "archlinux" ]; then
+    heading PACKAGES
+    if command -v paru > /dev/null; then
+        paru -Pw
+        paru --color always -Syu
+    else
+        doas pacman --color always -Syu
+    fi
+
+    heading ETC
+    if command -v pacdiff > /dev/null; then
+        doas pacdiff
+    else
+        echo "Instale pacman-contrib!"
+    fi
+
+elif [ "$OS" = "voidlinux" ]; then
+    heading PACKAGES
+    doas xbps-install -Su
+elif [ "$OS" = "linuxmint" ]; then
+    heading PACKAGES
+    doas apt update && doas apt upgrade
+fi
+
+if command -v cargo > /dev/null; then
+    heading CARGO
+    cargo install-update -a 2> /dev/null || echo "Instale cargo-update!"
+fi
+
+if command -v fish > /dev/null; then
+    heading FISH
+    fish -c "fisher update" || echo "Instale o fisher!"
+fi
+
+if command -v nvim > /dev/null; then
+    heading NEOVIM
+    nvim --headless +PaqSync +qa
+fi
+
+if command -v yarn > /dev/null; then
+    heading YARN
+    yarn global update
+elif command -v npm > /dev/null; then
+    heading NPM
+    if npm root -g | grep $HOME; then
+        npm update -g
+    fi
+fi
+
+if command -v flatpak > /dev/null; then
+    heading FLATPAK
+    flatpak update
+fi
+
+if command -v snap > /dev/null; then
+    heading SNAP
+    doas snap refresh
+fi

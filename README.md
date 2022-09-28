@@ -16,6 +16,10 @@ Executa comandos **Não interativos** do stumpwm no terminal
 
 Edita todo o output do st no emacs
 
+## atualizar
+
+Script para substituir o [topgrade](https://github.com/r-darwish/topgrade)
+
 ## wayland print
 
 Varias formas de captura de tela para wayland usando o grimshot, com temporizador ajustável
