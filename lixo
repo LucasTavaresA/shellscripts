@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-TRASH_FOLDER="${XDG_DATA_HOME:-$HOME/.local/share}/trash"
+TRASH_FOLDER="${XDG_DATA_HOME:-$HOME/.local/share}/Trash"
 CACHE_FOLDER="${XDG_CACHE_HOME:-$HOME/.cache}"
 CACHE_FILE="$CACHE_FOLDER/lixo"
 
