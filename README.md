@@ -24,10 +24,6 @@ Script para substituir o [topgrade](https://github.com/r-darwish/topgrade)
 
 Varias formas de captura de tela para wayland usando o grimshot, com temporizador ajustável
 
-## ediff
-
-Abre dois arquivos para editar no emacs mostrando suas diferenças
-
 ## lixo
 
 Script simples para gerenciamento de uma lixeira
