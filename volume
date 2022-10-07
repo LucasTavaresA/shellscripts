@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 [ "$1" = "semicones" ] && printf "%s" "$(amixer sget Master | grep -m 1 -o '\[.*%\]')" && exit 0
-[ "$(pacmd list-sinks | grep muted: | cut -d' ' -f2)" = yes ] && printf "🔇" && exit 0
+[ "$(amixer sget Master | sed '$b;d')" = "[off]" ] && printf "🔇" && exit 0
 
 vol="$(amixer sget Master | grep -m 1 '\[.*%\]' | awk -F'[][]' '{ print $2 }' | cut -d'%' -f1)"
 
