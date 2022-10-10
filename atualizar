@@ -67,6 +67,13 @@ if command -v nvim > /dev/null; then
     nvim --headless +PaqSync +qa
 fi
 
+if command -v python > /dev/null; then
+    if command -v pip > /dev/null; then
+        heading PIP
+        pip install $(pip freeze | sed 's/==/>=/;/.*@.*$/d') --upgrade
+    fi
+fi
+
 if command -v yarn > /dev/null; then
     heading YARN
     yarn global update
