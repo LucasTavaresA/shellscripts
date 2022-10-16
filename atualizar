@@ -68,8 +68,8 @@ update_nodejs () {
             yarn global update && status nodejs OK || status nodejs XX
         elif command -v npm > /dev/null; then
             heading NPM
-            if npm root -g | grep $HOME; then
-                npm update -g && status nodejs OK || status nodejs XX
+            if npm root --location=global | grep $HOME; then
+                npm update --loccation=global && status nodejs OK || status nodejs XX
             fi
         else
             status nodejs XX "Instale o yarn ou npm!"
