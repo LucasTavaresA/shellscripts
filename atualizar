@@ -62,16 +62,18 @@ update_etc () {
 }
 
 update_nodejs () {
-    if command -v yarn > /dev/null; then
-        heading YARN
-        yarn global update && status nodejs OK || status nodejs XX
-    elif command -v npm > /dev/null; then
-        heading NPM
-        if npm root -g | grep $HOME; then
-            npm update -g && status nodejs OK || status nodejs XX
+    if command -v node > /dev/null; then
+        if command -v yarn > /dev/null; then
+            heading YARN
+            yarn global update && status nodejs OK || status nodejs XX
+        elif command -v npm > /dev/null; then
+            heading NPM
+            if npm root -g | grep $HOME; then
+                npm update -g && status nodejs OK || status nodejs XX
+            fi
+        else
+            status nodejs XX "Instale o yarn ou npm!"
         fi
-    else
-        status nodejs XX "Instale o yarn ou npm!"
     fi
 }
 
