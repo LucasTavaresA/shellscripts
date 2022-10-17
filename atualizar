@@ -1,4 +1,9 @@
 #!/usr/bin/env sh
+has () {
+    _cmd=$(command -v "$1") 2>/dev/null || return 1
+    [ -x "$_cmd" ] || return 1
+}
+
 status=""
 status () {
     status="$status$1 $2!  $3\n"
@@ -35,7 +40,7 @@ heading () {
 update_packages () {
     if [ "$OS" = "archlinux" ] || [ "$OS" = "artixlinux" ] || [ "$OS" = "manjaro" ] || [ "$OS" = "archlinux" ]; then
         heading PACKAGES
-        if command -v paru > /dev/null; then
+        if has paru; then
             paru -Pw
             paru --color always -Syu && status packages OK || status packages XX
         else
@@ -52,7 +57,7 @@ update_packages () {
 
 update_etc () {
     if [ "$OS" = "archlinux" ] || [ "$OS" = "artixlinux" ] || [ "$OS" = "manjaro" ] || [ "$OS" = "archlinux" ]; then
-        if command -v pacdiff > /dev/null; then
+        if has pacdiff; then
             heading ETC
             doas pacdiff && status etc OK || status etc XX
         else
@@ -62,11 +67,11 @@ update_etc () {
 }
 
 update_nodejs () {
-    if command -v node > /dev/null; then
-        if command -v yarn > /dev/null; then
+    if has node; then
+        if has yarn; then
             heading YARN
             yarn global update && status nodejs OK || status nodejs XX
-        elif command -v npm > /dev/null; then
+        elif has npm; then
             heading NPM
             if npm root --location=global | grep $HOME; then
                 npm update --loccation=global && status nodejs OK || status nodejs XX
@@ -78,8 +83,8 @@ update_nodejs () {
 }
 
 update_pip () {
-    if command -v python > /dev/null; then
-        if command -v pip > /dev/null; then
+    if has python; then
+        if has pip; then
             heading PIP
             pip install $(pip freeze | sed 's/==/>=/;/.*@.*$/d') --upgrade && status pip OK || status pip XX
         else
@@ -89,16 +94,16 @@ update_pip () {
 }
 
 update_nvim () {
-    if command -v nvim > /dev/null; then
+    if has nvim; then
         heading NEOVIM
         nvim --headless +PaqSync +qa && status nvim OK || status nvim XX
     fi
 }
 
 update_fish () {
-    if command -v fish > /dev/null; then
+    if has fish; then
         heading FISH
-        if command -v cargo-install-update > /dev/null; then
+        if has cargo-install-update; then
             fish -c "fisher update" && status fish OK || status fish XX
         else
             status fish XX "Instale o fisher!"
@@ -107,9 +112,9 @@ update_fish () {
 }
 
 update_cargo () {
-    if command -v cargo > /dev/null; then
+    if has cargo; then
         heading CARGO
-        if command -v cargo-install-update > /dev/null; then
+        if has cargo-install-update; then
             cargo install-update -a 2> /dev/null && status cargo OK || status cargo xx
         else
             status cargo xx "Instale o cargo-update!"
@@ -118,14 +123,14 @@ update_cargo () {
 }
 
 update_flatpak () {
-    if command -v flatpak > /dev/null; then
+    if has flatpak; then
         heading FLATPAK
         flatpak update && status flatpak OK || status flatpak xx
     fi
 }
 
 update_snap () {
-    if command -v snap > /dev/null; then
+    if has snap; then
         heading SNAP
         doas snap refresh && status snap OK || status snap xx
     fi
