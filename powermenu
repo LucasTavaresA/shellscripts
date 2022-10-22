@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-    menu="fuzzel -d -l 2 -x 0 -y 0 -b 990000ff -t ffff00ff -m ffff00ff -s ff5500ff -S ffff00ff -B 1 -r 0 -C ff0000ff -f Terminus:size=18"
+    menu="tofi"
     opcoes="Reiniciar\\nDesligar"
 else
     menu="dmenu -a -l 3 -h 20 -c -cw 300"

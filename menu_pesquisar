@@ -1,8 +1,7 @@
 #!/usr/bin/env sh
 
 menu="dmenu -a -l 1 -h 20 -g 30 -p"
-[ "$XDG_SESSION_TYPE" = "wayland" ] && menu="fuzzel -d -I --terminal=term_open -w 100 -x 0 -y 0 -p 0 -b 000000ff \
-    -t ffffffff -m ff0000ff -S 000000ff -B 1 -r 0 -C ffffffff --show-actions -f Terminus:size=16 -P"
+[ "$XDG_SESSION_TYPE" = "wayland" ] && menu="tofi --anchor top --width 100% --prompt-text"
 
 pesquisa=$(printf "g
 fb

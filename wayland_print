@@ -2,7 +2,7 @@
 tirada=0
 print_nome="$HOME/print_$(date '+%d_%H:%M').png"
 visualizar="nsxiv -t $print_nome"
-menu="fuzzel -d -I --terminal=term_open -x 0 -y 0 -w 42 -p 0 -b 000000ff -t ffffffff -m ff0000ff -S 000000ff -B 1 -r 0 -C ffffffff --show-actions -f Terminus:size=16 -P"
+menu="tofi --prompt-text"
 
 case "$(printf "uma area selecionada\\numa janela\\ntela atual (Temporizar)\\ntodas as telas (Temporizar)\
 \\numa area selecionada (copiar)\\numa janela (copiar)\\ntela cheia (Temporizar) (copiar)\
