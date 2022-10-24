@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 menu="dmenu -a -l 1 -h 20 -g 30 -p"
-[ "$XDG_SESSION_TYPE" = "wayland" ] && menu="tofi --anchor top --width 100% --prompt-text"
+[ "$XDG_SESSION_TYPE" = "wayland" ] && menu="tofi --anchor top --width 100% --padding-left 0 --prompt-text"
 
 pesquisa=$(printf "g
 fb
@@ -35,7 +35,7 @@ gf
 ud
 tg
 wm
-editarmenu" | $menu "🔍 Pesquisar:")
+editarmenu" | $menu "Pesquisar: ")
 
 [ -z "$pesquisa" ] && exit # Sai com escape
 
