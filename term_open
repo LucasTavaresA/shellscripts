@@ -27,7 +27,7 @@ Help() {
    exit
 }
 
-[ "$(echo "$@" | grep -e '\-h$' -e ' \-h ' -e '\-\-help$' -e ' \-\-help ')" ] && Help
+[ "$(echo "$@" | grep -e '-h$' -e ' -h ' -e '--help$' -e ' --help ')" ] && Help
 
 while getopts "s:a:t:i:c:" opt; do
     case $opt in
