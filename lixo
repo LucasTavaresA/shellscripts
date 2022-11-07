@@ -9,13 +9,11 @@ CACHE_FILE="$CACHE_FOLDER/lixo"
 
 if [ "$1" = "limpar" ]; then
     lsd -lA "$TRASH_FOLDER/"
-    printf "Limpar a lixeira? [y/n]"
-    old_stty_cfg=$(stty -g)
-    stty raw -echo ; resposta=$(head -c 1) ; stty "$old_stty_cfg"
-    if echo "$resposta" | grep -iq "^y" ;then
-       doas rm -rf $TRASH_FOLDER/* $TRASH_FOLDER/.* "$CACHE_FILE" >/dev/null 2>&1
-       printf "\nLixeira limpa!"
-       exit
+    echo -n "Esvaziar a lixeira [Y/n]? "
+    read answer
+    if [ ! "$answer" != "${answer#[Nn]}" ] ;then
+        doas rm -rf $TRASH_FOLDER/* $TRASH_FOLDER/.* "$CACHE_FILE" >/dev/null 2>&1
+        printf "\nLixeira limpa!"
     fi
     exit
 fi
