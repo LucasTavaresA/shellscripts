@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 tirada=0
 print_nome="$HOME/print_$(date '+%d_%H:%M').png"
-visualizar="nsxiv -t $print_nome"
+visualizar="vimiv $print_nome"
 menu="tofi --prompt-text"
 
 case "$(printf "uma area selecionada\\numa janela\\ntela atual (Temporizar)\\ntodas as telas (Temporizar)\
