@@ -1,19 +1,15 @@
 #!/usr/bin/env sh
 
-[ "$1" = "semicones" ] && printf "%s" "$(amixer sget Master | grep -m 1 -o '\[.*%\]')" && exit 0
-[ "$(amixer sget Master | sed '$b;d')" = "[off]" ] && printf "🔇" && exit 0
+vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/Volume: //;s/\.//;s/^0//;s/.* \[MUTED\]/0/')"
 
-vol="$(amixer sget Master | grep -m 1 '\[.*%\]' | awk -F'[][]' '{ print $2 }' | cut -d'%' -f1)"
+[ "$1" = "semicones" ] && printf "[%s%%]" "$vol" && exit 0
 
 if [ "$vol" -gt "65" ]; then
-	icon="🔊"
-	printf "%s %s%%" "$icon" "$vol"
+	printf "%s %s%%" "🔊" "$vol"
 elif [ "$vol" -gt "45" ]; then
-	icon="🔉"
-	printf "%s %s%%" "$icon" "$vol"
+	printf "%s %s%%" "🔉" "$vol"
 elif [ "$vol" -gt "1" ]; then
-	icon="🔈"
-	printf "%s %s%%" "$icon" "$vol"
+	printf "%s %s%%" "🔈" "$vol"
 elif [ "$vol" = "0" ]; then
 	printf "🔇"
 fi
