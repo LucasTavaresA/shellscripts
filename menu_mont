@@ -4,8 +4,8 @@
 # Exemplo: sudo -A ou doas --
 set -x
 auth="doas_askpass"
-menu="dmenu -a -l 35 -h 20 -c -cw 300 -p"
-[ "$XDG_SESSION_TYPE" = "wayland" ] && menu="tofi --prompt-text"
+menu="tofi --prompt-text"
+[ -z "$WAYLAND_DISPLAY" ] && menu="dmenu -a -l 35 -h 20 -c -cw 300 -p"
 
 #config
 mount_dir="/tmp"

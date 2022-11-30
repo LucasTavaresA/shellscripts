@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-menu="dmenu -a -c -cw 100 -l 20 -h 20"
-[ "$XDG_SESSION_TYPE" = "wayland" ] && menu="tofi"
+menu="tofi"
+[ -z "$WAYLAND_DISPLAY" ] && menu="dmenu -a -c -cw 100 -l 20 -h 20"
 
 texto=$(cat "$1" | grep "^*")
 links=$(echo "$texto" | sed -e "s/^.*\[\[//" -e "s/\]\[.*\]\]\$//")

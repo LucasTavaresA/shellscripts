@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
-copy="xclip -selection clipboard"
-[ "$XDG_SESSION_TYPE" = "wayland" ] && copy="wl-copy"
+copy="wl-copy"
+[ -z "$WAYLAND_DISPLAY" ] && copy="xclip -selection clipboard"
 
 selecionado=$(cut -d ';' -f1 "$HOME/code/shellscripts/listas/emojis" | uniq -u | fzf | sed "s/ .*//")
 

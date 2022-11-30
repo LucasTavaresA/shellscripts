@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-menu="dmenu -a -c -cw 500 -fn Monospace-18 -P -p"
-[ "$XDG_SESSION_TYPE" = "wayland" ] && menu="tofi --prompt-text"
+menu="tofi --prompt-text"
+[ -z "$WAYLAND_DISPLAY" ] && menu="dmenu -a -c -cw 500 -fn Monospace-18 -P -p"
 
 $menu "$1" <&- && echo
