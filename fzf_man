@@ -4,8 +4,7 @@
 update() {
     man -k . > "$HOME/.cache/mans"
     cheat -l > "$HOME/.cache/cheats"
-    awman-update
-    exit
+    exit 0
 }
 
 [ "$1" = "update" ] && update
@@ -13,16 +12,9 @@ update() {
 
 case $(printf "manpages\ncheatsheets\nwikipages" | fzf --header "Procurar por?") in
     manpages)
-        escolha=$(cat "$HOME/.cache/mans" | fzf)
-        echo "$escolha" | cut -d' ' -f1 | sed "s/[^[:alpha:]]//g" | xargs man
+        man "$(fzf < "$HOME/.cache/mans" | sed 's/,.*//;s/(.).*//')"
         ;;
     cheatsheets)
-        escolha=$(cat "$HOME/.cache/cheats" | fzf)
-        echo "$escolha" | cut -d' ' -f1 | sed "s/[^[:alpha:]]//g" | xargs cheat
-        ;;
-    wikipages)
-        printf "Procurar na archwiki? " >&2
-        read -r pesquisado
-        awman -k "$pesquisado"
+        cheat "$(fzf < "$HOME/.cache/cheats" | cut -d' ' -f1)"
         ;;
 esac
