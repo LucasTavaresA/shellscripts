@@ -5,8 +5,8 @@ if ! mpc > /dev/null ; then
     exit 0
 fi
 
-[ "$(echo "$@" | grep prox)" ] && mpc next
-[ "$(echo "$@" | grep ante)" ] && mpc prev
+echo "$@" | grep -q prox && mpc next
+echo "$@" | grep -q ante && mpc prev
 
 # separa o nome da musica
 caminho="$(mpc current -f %file%)" # /home/lucas/musica.mp3
@@ -17,7 +17,7 @@ nome_curto=$(echo "$nome" | cut -c -40) # mus.. 40 caracteres
 # posição na playlist
 pos="$(mpc | grep -C 1 -o '[[:digit:]]*/[[:digit:]]* ')" # 10/25
 
-[ "$(echo "$@" | grep notificar)" ] && notify-send Tocando "$nome"
-[ "$(echo "$@" | grep tocando)" ] && printf "%s %s" "$nome_curto" "$pos"
+echo "$@" | grep -q notificar && notify-send Tocando "$nome"
+echo "$@" | grep -q tocando && printf "%s %s" "$nome_curto" "$pos"
 
 exit 0
