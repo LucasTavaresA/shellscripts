@@ -115,21 +115,6 @@ Implementação do askpass usando doas
 
 Dependências: `expect`
 
-<<<<<<< Updated upstream
-## orgmenu
-
-Menus agrupados usando arquivos org mode, abre links para editar, executar ou abre no navegador
-
-[exemplo.org](https://raw.githubusercontent.com/LucasTavaresA/shellscripts/main/exemplo.org)
-
-teste: `orgmenu ./exemplo.org`
-
-## dmenu run
-
-Abre programas com o dmenu, mostra informações quando usado com `dmenu_run info`
-
-=======
->>>>>>> Stashed changes
 ## [dmenu print](https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/maimpick)
 
 Varias formas de captura de tela usando o maim, com temporizador ajustável
