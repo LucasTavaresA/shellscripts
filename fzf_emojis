@@ -2,7 +2,7 @@
 copy="wl-copy"
 [ -z "$WAYLAND_DISPLAY" ] && copy="xclip -selection clipboard"
 
-selecionado=$(cut -d ';' -f1 "$HOME/code/shellscripts/listas/emojis" | uniq -u | fzf | sed "s/ .*//")
+selecionado=$(cut -d ';' -f1 "$(dirname "$0")"/listas/emojis | uniq -u | fzf | sed "s/ .*//")
 
 # Sai caso nenhum é selecionado.
 [ -z "$selecionado" ] && exit

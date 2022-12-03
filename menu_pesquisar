@@ -42,7 +42,6 @@ editarmenu" | $menu "Pesquisar: ")
 procurado=${pesquisa#* }
 
 case $pesquisa in
-    editarmenu) $VISUAL "$HOME/code/shellscripts/menu_pesquisar" ;;
     aw)    site="https://wiki.archlinux.org/" nome="archwiki" ;;
     al)    site="https://anilist.co/user/Lucastavares/animelist" nome="animelist" ;;
     alm)   site="https://anilist.co/user/Lucastavares/mangalist" nome="mangalist" ;;
@@ -102,6 +101,7 @@ case $pesquisa in
     wm*)   $BROWSER "https://web.archive.org/web/*/$procurado" & notify-send "Pesquisando no wayback machine" "$procurado" ;;
     yt*)   $BROWSER "https://www.youtube.com/results?search_query=$procurado" & notify-send "Pesquisando no youtube" "$procurado" ;;
     *)     $BROWSER & notify-send "Abrindo" "$BROWSER";;
+    editarmenu) $VISUAL menu_pesquisar ;;
 esac
 
 [ -z "$site" ] && exit
