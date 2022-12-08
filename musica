@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # continua caso o mpd esteja aberto
-if ! mpc > /dev/null ; then
+if ! mpc >/dev/null; then
     exit 0
 fi
 
@@ -9,15 +9,17 @@ echo "$@" | grep -q prox && mpc next
 echo "$@" | grep -q ante && mpc prev
 
 # separa o nome da musica
-caminho="$(mpc current -f %file%)" # /home/lucas/musica.mp3
-arquivo=${caminho##*/} # musica.mp3
-nome=${arquivo%.*} # musica
+caminho="$(mpc current -f %file%)"      # /home/lucas/musica.mp3
+arquivo=${caminho##*/}                  # musica.mp3
+nome=${arquivo%.*}                      # musica
 nome_curto=$(echo "$nome" | cut -c -40) # mus.. 40 caracteres
 
 # posição na playlist
 pos="$(mpc | grep -C 1 -o '[[:digit:]]*/[[:digit:]]* ')" # 10/25
 
 echo "$@" | grep -q notificar && notify-send Tocando "$nome"
-echo "$@" | grep -q tocando && printf "%s %s" "$nome_curto" "$pos"
+echo "$@" | grep -q tocando && output="$nome_curto $pos" &&
+    echo "$output" >"$HOME/documentos/tocando.txt" &&
+    echo "$output"
 
 exit 0
