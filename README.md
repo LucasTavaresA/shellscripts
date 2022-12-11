@@ -8,14 +8,6 @@
 
 Ativa/Desativa desligamento automático do monitor
 
-## [Stumpish](https://github.com/stumpwm/stumpwm-contrib/blob/master/util/stumpish/stumpish)
-
-Executa comandos **Não interativos** do stumpwm no terminal
-
-## [st-edittext](https://st.suckless.org/patches/externalpipe/editscreen.sh)
-
-Edita todo o output do st no emacs
-
 ## wayland print
 
 Varias formas de captura de tela para wayland usando o grimshot, com temporizador ajustável
@@ -35,27 +27,6 @@ Checa updates e manda notificação caso existam mais de 30 updates pendentes
 Dependencias pacman: pacman-contrib
 
 **Caso o sistema não use o pacman é necessário habilitar execução sem senha do comando que atualiza a lista de pacotes no doas,sudo,etc.**
-
-## term_open
-
-Abre o terminal na variável `$TERMINAL` e adapta flags ao terminal usado
-Mais detalhes usando `term_open -h` ou lendo a ajuda no código fonte
-
-## term_scratchpad
-
-Implementação de scratchpads independente de terminal e window manager
-
-Dependências: xdo, xdotool, Xorg/X11
-
-## ajustar_tamanho.sh
-
-Ajusta janela focada para a proporção correta
-
-Exemplo: removendo barras pretas em um vídeo
-
-Dependências: bc, jq
-
-**Funciona apenas no bspwm**
 
 ## gerar_números
 
@@ -91,29 +62,30 @@ Abra manpages e cheatsheets com o fzf, necessário criar/atualizar uma lista com
 
 Dependências para cheatsheets: `cheat`
 
-## fzf_sxhkd
+## term_open
 
-Gera Lista teclas do sxhkd, Usando a variável `$WM` para descobrir o window manager
+Abre o terminal na variável `$TERMINAL` e adapta flags ao terminal usado
+Mais detalhes usando `term_open -h` ou lendo a ajuda no código fonte
+
+## term_scratchpad
+
+Implementação de scratchpads independente de terminal e window manager
+
+Dependências: xdo, xdotool, Xorg/X11
+
+## [st-edittext](https://st.suckless.org/patches/externalpipe/editscreen.sh)
+
+Edita todo o output do st no emacs
+
+## [st-scripts](https://st.suckless.org/patches/externalpipe/)
+
+Scripts para o st usando dmenu e o patch externalpipe
 
 ## powermenu
 
 Menu opções de energia
 
 **Necessário habilitar execução sem senha do comando para desligar/reiniciar no doas,sudo,etc.**
-
-## [st-scripts](https://st.suckless.org/patches/externalpipe/)
-
-Scripts para o st usando dmenu e o patch externalpipe
-
-## [passmenu](https://www.passwordstore.org/)
-
-Lista senhas do gnu pass e digita/copia senha selecionada
-
-## [doas_askpass](https://noxz.tech/articles/askpass_implementation_for_doas/)
-
-Implementação do askpass usando doas
-
-Dependências: `expect`
 
 ## [dmenu print](https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/maimpick)
 
@@ -122,10 +94,6 @@ Varias formas de captura de tela usando o maim, com temporizador ajustável
 ## menu mont
 
 Monta e desmonta drives e isos
-
-## menu pass
-
-Frontend para senhas
 
 ## menu pesquisar
 

@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-menu="tofi --prompt-text"
-[ -z "$WAYLAND_DISPLAY" ] && menu="dmenu -a -c -cw 500 -fn Monospace-18 -P -p"
-
-$menu "$1" <&- && echo
