@@ -18,8 +18,8 @@ nome_curto=$(echo "$nome" | cut -c -40) # mus.. 40 caracteres
 pos="$(mpc | grep -C 1 -o '[[:digit:]]*/[[:digit:]]* ')" # 10/25
 
 echo "$@" | grep -q notificar && notify-send Tocando "$nome"
-echo "$@" | grep -q tocando && output="$nome_curto $pos" &&
-    echo "$output" >"$HOME/documentos/tocando.txt" &&
-    echo "$output"
+echo "$@" | grep -q tocando && output="$nome_curto $pos" \
+    && echo "$output" >"$HOME/documentos/tocando.txt" \
+    && echo "$output"
 
 exit 0

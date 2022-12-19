@@ -3,28 +3,28 @@
 
 # Mensagem de ajuda
 Help() {
-   echo
-   echo "Abre o terminal na variável \$TERMINAL e adapta flags ao terminal usado"
-   echo
-   echo "Sintaxe: term_open [-s] [-a nome] [-t titulo] [-i instancia] [-c classe] [-h|--help]"
-   echo
-   echo "Sem argumentos abre o terminal"
-   echo
-   echo "Uso:"
-   echo "   -s"
-   echo "       Separa o proceso do terminal, Requer terminal compatível"
-   echo "   -t"
-   echo "       Define o titulo do terminal"
-   echo "   -i"
-   echo "       Define a instancia do terminal"
-   echo "   -c"
-   echo "       Define a classe do terminal"
-   echo "   -a"
-   echo "       Define o titulo,instancia e classe do terminal com o mesmo valor"
-   echo "   -h,--help"
-   echo "       Mostra essa ajuda e fecha"
-   echo
-   exit
+    echo
+    echo "Abre o terminal na variável \$TERMINAL e adapta flags ao terminal usado"
+    echo
+    echo "Sintaxe: term_open [-s] [-a nome] [-t titulo] [-i instancia] [-c classe] [-h|--help]"
+    echo
+    echo "Sem argumentos abre o terminal"
+    echo
+    echo "Uso:"
+    echo "   -s"
+    echo "       Separa o proceso do terminal, Requer terminal compatível"
+    echo "   -t"
+    echo "       Define o titulo do terminal"
+    echo "   -i"
+    echo "       Define a instancia do terminal"
+    echo "   -c"
+    echo "       Define a classe do terminal"
+    echo "   -a"
+    echo "       Define o titulo,instancia e classe do terminal com o mesmo valor"
+    echo "   -h,--help"
+    echo "       Mostra essa ajuda e fecha"
+    echo
+    exit
 }
 
 [ "$(echo "$@" | grep -e '-h$' -e ' -h ' -e '--help$' -e ' --help ')" ] && Help

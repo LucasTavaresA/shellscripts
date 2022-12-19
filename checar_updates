@@ -11,6 +11,6 @@ elif [ "$OS" = "linuxmint" ]; then
 fi
 
 if [ "$quantidade" -gt 30 ]; then
-    notify-send -u critical "Atualize os pacotes!" "$quantidade pacotes esperando atualização" >/dev/null 2>&1 ||
-        echo "Atualize os pacotes! $quantidade pacotes esperando atualização"
+    notify-send -u critical "Atualize os pacotes!" "$quantidade pacotes esperando atualização" >/dev/null 2>&1 \
+        || echo "Atualize os pacotes! $quantidade pacotes esperando atualização"
 fi

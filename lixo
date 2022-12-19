@@ -11,18 +11,17 @@ if [ "$1" = "limpar" ]; then
     lsd -lA "$TRASH_FOLDER/"
     echo -n "Esvaziar a lixeira [Y/n]? "
     read answer
-    if [ ! "$answer" != "${answer#[Nn]}" ] ;then
+    if [ ! "$answer" != "${answer#[Nn]}" ]; then
         doas rm -rf $TRASH_FOLDER/* $TRASH_FOLDER/.* "$CACHE_FILE" >/dev/null 2>&1
         printf "\nLixeira limpa!"
     fi
     exit
 fi
 
-substituir () {
-    for arquivo in "$@"
-    do
-        mv -f "$arquivo" "$TRASH_FOLDER" >/dev/null 2>&1 || nome=${arquivo##*/} && \
-            rm -rf "$TRASH_FOLDER/$nome" && mv -f "$arquivo" "$TRASH_FOLDER"
+substituir() {
+    for arquivo in "$@"; do
+        mv -f "$arquivo" "$TRASH_FOLDER" >/dev/null 2>&1 || nome=${arquivo##*/} \
+            && rm -rf "$TRASH_FOLDER/$nome" && mv -f "$arquivo" "$TRASH_FOLDER"
     done
 }
 
@@ -30,11 +29,11 @@ mv -f "$@" "$TRASH_FOLDER" >/dev/null 2>&1 || substituir "$@"
 
 if [ -e "$CACHE_FILE" ]; then
     quantia=$(cat "$CACHE_FILE")
-    quantia=$((quantia+1))
-    echo $quantia > "$CACHE_FILE"
-    [ "$quantia" -gt 5 ] && \
-        echo "Limpe a sua lixeira!" && notify-send -u normal "Lixeira" "Limpe a sua lixeira!" && return
+    quantia=$((quantia + 1))
+    echo $quantia >"$CACHE_FILE"
+    [ "$quantia" -gt 5 ] \
+        && echo "Limpe a sua lixeira!" && notify-send -u normal "Lixeira" "Limpe a sua lixeira!" && return
 else
     touch "$CACHE_FILE"
-    echo 1 > "$CACHE_FILE"
+    echo 1 >"$CACHE_FILE"
 fi

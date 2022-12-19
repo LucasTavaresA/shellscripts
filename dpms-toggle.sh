@@ -2,15 +2,15 @@
 
 DPMS_STATUS=$(xset q | perl -ne 'if (/DPMS is (Enabled|Disabled)/) { print $1 . "\n"; }')
 
-sendNotification () {
+sendNotification() {
     notify-send --app-name="dpms-toggle.sh" --expire-time=3000 "$@"
 }
 
-if [[ $DPMS_STATUS == "Enabled" ]] ; then
+if [[ $DPMS_STATUS == "Enabled" ]]; then
     xset -dpms
     xset s off
     sendNotification "DPMS Desativado"
-elif [[ $DPMS_STATUS == "Disabled" ]] ; then
+elif [[ $DPMS_STATUS == "Disabled" ]]; then
     xset +dpms
     xset s on
     sendNotification "DPMS Ativado"

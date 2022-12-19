@@ -2,19 +2,18 @@
 
 # atualiza listas
 update() {
-    man -k . > "$HOME/.cache/mans"
-    cheat -l > "$HOME/.cache/cheats"
+    man -k . >"$HOME/.cache/mans"
+    cheat -l >"$HOME/.cache/cheats"
     exit 0
 }
 
 [ "$1" = "update" ] && update
 
-
 case $(printf "manpages\ncheatsheets\nwikipages" | fzf --header "Procurar por?") in
     manpages)
-        man "$(fzf < "$HOME/.cache/mans" | sed 's/,.*//;s/(.).*//')"
+        man "$(fzf <"$HOME/.cache/mans" | sed 's/,.*//;s/(.).*//')"
         ;;
     cheatsheets)
-        cheat "$(fzf < "$HOME/.cache/cheats" | cut -d' ' -f1)"
+        cheat "$(fzf <"$HOME/.cache/cheats" | cut -d' ' -f1)"
         ;;
 esac

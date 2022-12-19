@@ -4,7 +4,6 @@ awk ' BEGIN \
 {	srand()
 	while(1)
 		printf( "%d %d\n", 16 * rand(), 16 * rand() )
-}' | while read -r byteone bytetwo
-do
-        echo "$byteone $bytetwo"
+}' | while read -r byteone bytetwo; do
+    echo "$byteone $bytetwo"
 done

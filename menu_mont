@@ -12,10 +12,11 @@ mount_dir="/tmp"
 
 # desmontar
 desmontar() {
-    select=$(grep "/mnt\|$mount_dir/" /proc/self/mounts \
-        | cut -d " " -f2 \
-        | sort \
-        | $menu "desmontar" \
+    select=$(
+        grep "/mnt\|$mount_dir/" /proc/self/mounts \
+            | cut -d " " -f2 \
+            | sort \
+            | $menu "desmontar"
     )
 
     [ -n "$select" ] \
@@ -43,10 +44,10 @@ montar_usb() {
         && mkdir "$mount_point" \
         && case "$partition_type" in
             vfat)
-                $auth mount -t "$partition_type" "$select" "$mount_point" -o rw,umask=0000 \
+                $auth mount -t "$partition_type" "$select" "$mount_point" -o rw,umask=0000
                 ;;
             exfat)
-                $auth mount "$select" "$mount_point" -o rw,umask=0000 \
+                $auth mount "$select" "$mount_point" -o rw,umask=0000
                 ;;
             *)
                 $auth mount "$select" "$mount_point"
@@ -54,7 +55,7 @@ montar_usb() {
                 user_group="$(groups | cut -d " " -f1)"
                 $auth chown "$user":"$user_group" 741 "$mount_point"
                 ;;
-            esac \
+        esac \
         && notify-send \
             "montar usb $partition_type" \
             "$select montado em $mount_point"
@@ -63,14 +64,15 @@ montar_usb() {
 # montar iso
 montar_iso() {
     search="$HOME/Downloads"
-    select=$(find "$search" -type f \
+    select=$(
+        find "$search" -type f \
             -iname "*.iso" -o \
             -iname "*.img" -o \
             -iname "*.bin" -o \
             -iname "*.mdf" -o \
             -iname "*.nrg" \
-        | cut -d / -f 5 \
-        | $menu "montar iso" \
+            | cut -d / -f 5 \
+            | $menu "montar iso"
     )
 
     [ -z "$select" ] \
@@ -82,16 +84,17 @@ montar_iso() {
     [ ! -d "$mount_point" ] \
         && mkdir "$mount_point"
     $auth mount -o loop "$search/$select" "$mount_point" \
-    && notify-send \
-    "montar iso" \
-    "$select montado em $mount_point"
+        && notify-send \
+            "montar iso" \
+            "$select montado em $mount_point"
 }
 
 # montar android
 montar_android() {
-    select=$(simple-mtpfs -l 2>/dev/null \
-        | $menu "montar android" \
-        | cut -d ":" -f1 \
+    select=$(
+        simple-mtpfs -l 2>/dev/null \
+            | $menu "montar android" \
+            | cut -d ":" -f1
     )
 
     [ -z "$select" ] \
@@ -108,13 +111,14 @@ montar_android() {
 }
 
 # menu
-case $(printf "%s\n" \
-    "desmontar" \
-    "montar usb" \
-    "montar iso" \
-    "montar android" \
-    | $menu "" \
-    ) in
+case $(
+    printf "%s\n" \
+        "desmontar" \
+        "montar usb" \
+        "montar iso" \
+        "montar android" \
+        | $menu ""
+) in
     "desmontar")
         desmontar
         ;;
