@@ -2,14 +2,15 @@
 
 if [ "$OS" = "voidlinux" ]; then
     doas xbps-install -S >/dev/null 2>&1
-    quantidade=$(xbps-install -un 2> /dev/null | wc -l)
+    quantidade=$(xbps-install -un 2>/dev/null | wc -l)
 elif [ "$OS" = "artixlinux" ] || [ "$OS" = "archlinux" ] || [ "$OS" = "manjaro" ]; then
-    quantidade=$(checkupdates 2> /dev/null | wc -l)
+    quantidade=$(checkupdates 2>/dev/null | wc -l)
 elif [ "$OS" = "linuxmint" ]; then
     doas apt update >/dev/null 2>&1
-    quantidade=$(apt list --upgradable 2> /dev/null | wc -l)
+    quantidade=$(apt list --upgradable 2>/dev/null | wc -l)
 fi
 
 if [ "$quantidade" -gt 30 ]; then
-    notify-send -u critical "Atualize os pacotes!" "$quantidade pacotes esperando atualização"
+    notify-send -u critical "Atualize os pacotes!" "$quantidade pacotes esperando atualização" >/dev/null 2>&1 ||
+        echo "Atualize os pacotes! $quantidade pacotes esperando atualização"
 fi
