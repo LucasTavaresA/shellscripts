@@ -16,7 +16,7 @@ elif [ "$OS" = "archlinux" ] || [ "$OS" = "manjaro" ]; then
     desligar="systemctl poweroff"
 fi
 
-case "$(printf "$opcoes" | $menu)" in
+case "$(printf "%s" "$opcoes" | $menu)" in
     "Desligamento de tela") dpms-toggle.sh ;;
     "Reiniciar") $reiniciar ;;
     "Desligar") $desligar ;;

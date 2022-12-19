@@ -178,11 +178,11 @@ case $pesquisa in
         $BROWSER "https://www.youtube.com/results?search_query=$procurado" &
         notify-send "Pesquisando no youtube" "$procurado"
         ;;
+    editarmenu) $VISUAL menu_pesquisar ;;
     *)
         $BROWSER &
         notify-send "Abrindo" "$BROWSER"
         ;;
-    editarmenu) $VISUAL menu_pesquisar ;;
 esac
 
 [ -z "$site" ] && exit

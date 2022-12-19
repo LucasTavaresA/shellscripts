@@ -3,31 +3,31 @@
 
 # Mensagem de ajuda
 Help() {
-    echo
-    echo "Abre o terminal na variável \$TERMINAL e adapta flags ao terminal usado"
-    echo
-    echo "Sintaxe: term_open [-s] [-a nome] [-t titulo] [-i instancia] [-c classe] [-h|--help]"
-    echo
-    echo "Sem argumentos abre o terminal"
-    echo
-    echo "Uso:"
-    echo "   -s"
-    echo "       Separa o proceso do terminal, Requer terminal compatível"
-    echo "   -t"
-    echo "       Define o titulo do terminal"
-    echo "   -i"
-    echo "       Define a instancia do terminal"
-    echo "   -c"
-    echo "       Define a classe do terminal"
-    echo "   -a"
-    echo "       Define o titulo,instancia e classe do terminal com o mesmo valor"
-    echo "   -h,--help"
-    echo "       Mostra essa ajuda e fecha"
-    echo
+    printf "
+    Abre o terminal na variável \$TERMINAL e adapta flags ao terminal usado
+
+    Sintaxe: term_open [-s] [-a nome] [-t titulo] [-i instancia] [-c classe] [-h|--help]
+
+    Sem argumentos abre o terminal
+
+    Uso:
+       -s
+           Separa o processo do terminal, Requer terminal compatível
+       -t
+           Define o titulo do terminal
+       -i
+           Define a instancia do terminal
+       -c
+           Define a classe do terminal
+       -a
+           Define o titulo,instancia e classe do terminal com o mesmo valor
+       -h,--help
+           Mostra essa ajuda e fecha
+"
     exit
 }
 
-[ "$(echo "$@" | grep -e '-h$' -e ' -h ' -e '--help$' -e ' --help ')" ] && Help
+echo "$@" | grep -q -e '-h$' -e ' -h ' -e '--help$' -e ' --help ' && Help
 
 while getopts "s:a:t:i:c:" opt; do
     case $opt in
@@ -58,22 +58,22 @@ while getopts "s:a:t:i:c:" opt; do
             ;;
     esac
 done
-shift $(($OPTIND - 1))
+shift $((OPTIND - 1))
 
 if [ "$TERMINAL" = "footclient" ] || [ "$TERMINAL" = "foot" ]; then
     [ "$separar" = 1 ] && term_args=" -N"
     [ -n "$term_titulo" ] && foot_titulo=" -T $term_titulo"
     [ -n "$term_classe" ] && foot_app_id=" -a $term_classe"
-    exec $TERMINAL$term_args$foot_titulo$foot_app_id -e "$@"
+    eval exec "$TERMINAL$term_args$foot_titulo$foot_app_id -e $*"
 elif [ "$TERMINAL" = "alacritty" ]; then
     [ -n "$term_instancia" ] && alacritty_instancia=" --class $term_instancia"
     [ -n "$term_classe" ] && alacritty_classe=",$term_classe"
     [ -n "$alacritty_classe" ] && alacritty_instancia=" --class ${alacritty_classe#*,}"
     [ -n "$term_titulo" ] && alacritty_titulo=" -t $term_titulo"
-    exec $TERMINAL$alacritty_instancia$alacritty_classe$alacritty_titulo -e "$@"
+    eval exec "$TERMINAL$alacritty_instancia$alacritty_classe$alacritty_titulo -e $*"
 elif [ "$TERMINAL" = "st" ]; then
     [ -n "$term_titulo" ] && st_titulo=" -T $term_titulo"
     [ -n "$term_instancia" ] && st_instancia=" -n $term_instancia"
     [ -n "$term_classe" ] && st_classe=" -c $term_classe"
-    exec $TERMINAL$st_titulo$st_instancia$st_classe -e "$@"
+    eval exec "$TERMINAL$st_titulo$st_instancia$st_classe -e $*"
 fi
