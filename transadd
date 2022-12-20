@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+transmission-remote -w $HOME/Downloads -a "$@" && notify-send "transmission-daemon" "Adicionado torrent!"
