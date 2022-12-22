@@ -12,7 +12,7 @@ if [ "$1" = "limpar" ]; then
     printf "Esvaziar a lixeira [Y/n]? "
     read -r answer
     if [ ! "$answer" != "${answer#[Nn]}" ]; then
-        doas rm -rf "$TRASH_FOLDER/*" "$TRASH_FOLDER/.*" "$CACHE_FILE" >/dev/null 2>&1
+        doas rm -rf "$TRASH_FOLDER"/* "$TRASH_FOLDER"/.* "$CACHE_FILE" >/dev/null 2>&1
         printf "\nLixeira limpa!"
     fi
     exit
