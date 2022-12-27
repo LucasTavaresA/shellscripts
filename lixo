@@ -1,39 +1,61 @@
 #!/usr/bin/env sh
-
+DATE="$(date '+%d_%H:%M--%N')"
 TRASH_FOLDER="${XDG_DATA_HOME:-$HOME/.local/share}/Trash"
 CACHE_FOLDER="${XDG_CACHE_HOME:-$HOME/.cache}"
 CACHE_FILE="$CACHE_FOLDER/lixo"
 
-[ ! -d "$TRASH_FOLDER" ] && mkdir "$TRASH_FOLDER"
-[ ! -d "$CACHE_FOLDER" ] && mkdir "$CACHE_FOLDER"
+limpar() {
+    TRASH_FOLDER_ESC="$(echo "$TRASH_FOLDER" | sed 's/\//\\\//g')"
+    files="$(find "$TRASH_FOLDER" | sed "s/$TRASH_FOLDER_ESC\///g")"
 
-if [ "$1" = "limpar" ]; then
-    lsd -lA "$TRASH_FOLDER/"
-    printf "Esvaziar a lixeira [Y/n]? "
-    read -r answer
-    if [ ! "$answer" != "${answer#[Nn]}" ]; then
-        doas rm -rf "$TRASH_FOLDER"/* "$TRASH_FOLDER"/.* "$CACHE_FILE" >/dev/null 2>&1
-        printf "\nLixeira limpa!"
+    if [ "$files" = "$TRASH_FOLDER" ]; then
+        echo "Nada na lixeira :)"
+        exit 0
+    else
+        echo "$files"
+        printf "Esvaziar a lixeira [Y/n]? "
+        read -r answer
+
+        if [ ! "$answer" != "${answer#[Nn]}" ]; then
+            rm -r "$TRASH_FOLDER" "$CACHE_FILE"
+            echo "Lixeira limpa!"
+        fi
+
+        exit 0
     fi
-    exit
-fi
-
-substituir() {
-    for arquivo in "$@"; do
-        mv -f "$arquivo" "$TRASH_FOLDER" >/dev/null 2>&1 || nome=${arquivo##*/} &&
-            rm -rf "${TRASH_FOLDER:?}/$nome" && mv -f "$arquivo" "$TRASH_FOLDER"
-    done
 }
 
-mv -f "$@" "$TRASH_FOLDER" >/dev/null 2>&1 || substituir "$@"
+main() {
+    [ ! -d "$TRASH_FOLDER" ] && mkdir "$TRASH_FOLDER"
+    [ ! -d "$CACHE_FOLDER" ] && mkdir "$CACHE_FOLDER"
 
-if [ -e "$CACHE_FILE" ]; then
-    quantia=$(cat "$CACHE_FILE")
-    quantia=$((quantia + 1))
-    echo $quantia >"$CACHE_FILE"
-    [ "$quantia" -gt 5 ] &&
-        echo "Limpe a sua lixeira!" && notify-send -u normal "Lixeira" "Limpe a sua lixeira!" && return
-else
-    touch "$CACHE_FILE"
-    echo 1 >"$CACHE_FILE"
-fi
+    if [ -z "$*" ]; then
+        exit 1
+    elif [ "$1" = "limpar" ]; then
+        limpar "$@"
+    else
+        for arquivo in "$@"; do
+            if [ -e "$arquivo" ]; then
+                mv "$arquivo" "$TRASH_FOLDER/$arquivo--$DATE"
+            else
+                echo "Erro: $arquivo Não existe!"
+                exit 1
+            fi
+        done
+
+        if [ -e "$CACHE_FILE" ]; then
+            quantia=$(cat "$CACHE_FILE")
+            quantia=$((quantia + 1))
+            echo $quantia >"$CACHE_FILE"
+            if [ "$quantia" -gt 5 ]; then
+                notify-send -u normal "Lixeira" "Limpe a sua lixeira!" ||
+                    echo "Limpe a lixeira!"
+            fi
+        else
+            touch "$CACHE_FILE"
+            echo 1 >"$CACHE_FILE"
+        fi
+    fi
+}
+
+main "$@"
