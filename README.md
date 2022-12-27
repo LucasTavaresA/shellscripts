@@ -16,10 +16,6 @@ Varias formas de captura de tela para wayland usando o grimshot, com temporizado
 
 Chamado pelo `transmission-remote.desktop`, adiciona torrent e notifica
 
-## lixo
-
-Script simples para gerenciamento de uma lixeira
-
 ## polybar_herbstluftwm
 
 Mostra layout atual e numero de janelas quando em tela cheia
