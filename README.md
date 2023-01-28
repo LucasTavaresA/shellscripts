@@ -98,3 +98,11 @@ Monta e desmonta drives e isos
 ## menu pesquisar
 
 Abre uma lista de engines para pesquisa usando "aliases" como no qutebrowser
+
+## xchecklog
+
+Dentro de um repo [void-packages](https://github.com/void-linux/void-packages) checa o ultimo git log the uma lista de pacotes xbps
+
+Exemplo: `xpkg -m | xchecklog`
+
+Dependências: xtools

@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+#
+# xchecklog - get latest git log from packages
+# example: xpkg -m | xchecklog
+voidsrc="$(xdistdir)"
+
+if [ -d "$voidsrc" ] && [ -p /dev/stdin ]; then
+    while IFS= read -r pkg; do
+        if [ -f "srcpkgs/$pkg/template" ]; then
+            echo "$pkg $(git log -n 1 --date=short --pretty='%cd %h%d %aE: %s' -- "srcpkgs/$pkg/template")"
+        else
+            echo "$pkg - does not exist!"
+        fi
+    done
+fi
