@@ -65,6 +65,7 @@ case $pesquisa in
     sc) site="https://soundcloud.com/you/likes" ;;
     se) site="https://stackexchange.com/" ;;
     sf) site="https://sourceforge.net/" ;;
+    s) site="https://searx.be/" ;;
     tg) site="https://trends.google.com.br/" ;;
     tw) site="https://twitter.com/" ;;
     ud) site="https://www.urbandictionary.com/" ;;
@@ -133,6 +134,9 @@ case $pesquisa in
         ;;
     sf*)
         $BROWSER "https://sourceforge.net/directory/?q=$procurado"
+        ;;
+    s*)
+        $BROWSER "https://searx.be/search?q=$procurado"
         ;;
     tw*)
         $BROWSER "https://twitter.com/search?q=$procurado"
