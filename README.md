@@ -4,10 +4,6 @@
 
 **Recomendo modificar/analizar os scripts ao seu gosto, ou ver/entender como eles funcionam antes de usa-los**
 
-## [dpms-toggle](https://github.com/ramLlama/scripts/blob/master/dpms-toggle.sh)
-
-Ativa/Desativa desligamento automático do monitor
-
 ## wayland print
 
 Varias formas de captura de tela para wayland usando o grimshot, com temporizador ajustável
@@ -15,10 +11,6 @@ Varias formas de captura de tela para wayland usando o grimshot, com temporizado
 ## transadd
 
 Chamado pelo `transmission-remote.desktop`, adiciona torrent e notifica
-
-## polybar_herbstluftwm
-
-Mostra layout atual e numero de janelas quando em tela cheia
 
 ## checar_updates
 
@@ -44,17 +36,9 @@ Troca de musica com `musica ante e musica prox`
 
 Mostra porcentagem de volume e ícone que muda dependendo do volume
 
-## stumpwm_barra
-
-Cria e atualiza um arquivo em shellscript, mantendo a velocidade da barra
-
 ## fzf_emojis
 
 Seleciona e copia um emoji com o fzf
-
-## fzf_clip
-
-[Clipmenud](https://github.com/cdown/clipmenu) usando o fzf
 
 ## fzf_man
 
@@ -66,30 +50,6 @@ Dependências para cheatsheets: `cheat`
 
 Abre o terminal na variável `$TERMINAL` e adapta flags ao terminal usado
 Mais detalhes usando `term_open -h` ou lendo a ajuda no código fonte
-
-## term_scratchpad
-
-Implementação de scratchpads independente de terminal e window manager
-
-Dependências: xdo, xdotool, Xorg/X11
-
-## [st-edittext](https://st.suckless.org/patches/externalpipe/editscreen.sh)
-
-Edita todo o output do st no emacs
-
-## [st-scripts](https://st.suckless.org/patches/externalpipe/)
-
-Scripts para o st usando dmenu e o patch externalpipe
-
-## powermenu
-
-Menu opções de energia
-
-**Necessário habilitar execução sem senha do comando para desligar/reiniciar no doas,sudo,etc.**
-
-## [dmenu print](https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/maimpick)
-
-Varias formas de captura de tela usando o maim, com temporizador ajustável
 
 ## menu mont
 
