@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 print_nome="$HOME/print_$(date '+%d_%H:%M').png"
-visualizar="vimiv $print_nome"
+visualizar="nsxiv $print_nome"
 menu="dmenu -b -l 15 -p"
 
 _0x0() {

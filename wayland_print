@@ -1,43 +1,43 @@
 #!/usr/bin/env sh
 print_nome="$HOME/print_$(date '+%d_%H:%M').png"
-visualizar="vimiv $print_nome"
+visualizar="nsxiv $print_nome"
 menu="tofi --prompt-text"
 
 _0x0() {
-    enviar=$(echo "" | $menu "Enviar imagem usando 0x0 [y/N]?")
-    curl="curl -F'file=@$print_nome' https://0x0.st"
-    [ "$enviar" = "y" ] && eval "$curl" | wl-copy && notify-send 0x0 "screenshot enviado & url copiada"
+	enviar=$(echo "" | $menu "Enviar imagem usando 0x0 [y/N]?")
+	curl="curl -F'file=@$print_nome' https://0x0.st"
+	[ "$enviar" = "y" ] && eval "$curl" | wl-copy && notify-send 0x0 "screenshot enviado & url copiada"
 }
 
 case "$(printf "uma area selecionada\\numa janela\\ntela atual (Temporizar)\\ntodas as telas (Temporizar)\
 \\numa area selecionada (copiar)\\numa janela (copiar)\\ntela cheia (Temporizar) (copiar)\
 \\ntodas as telas (Temporizar) (copiar)" | $menu "Area do print?")" in
-    "uma area selecionada")
-        grimshot --notify save area "$print_nome" && $visualizar && _0x0
-        ;;
-    "uma janela")
-        grimshot --notify save window "$print_nome" && $visualizar && _0x0
-        ;;
-    "tela atual (Temporizar)")
-        tempo=$(echo "" | $menu "Esperar em segundos:")
-        sleep "$tempo" && grimshot --notify save output "$print_nome" && $visualizar && _0x0
-        ;;
-    "todas as telas (Temporizar)")
-        tempo=$(echo "" | $menu "Esperar em segundos:")
-        sleep "$tempo" && grimshot --notify save screen "$print_nome" && $visualizar && _0x0
-        ;;
-    "uma area selecionada (copiar)")
-        grimshot --notify copy area
-        ;;
-    "uma janela (copiar)")
-        grimshot --notify copy window
-        ;;
-    "tela atual (Temporizar) (copiar)")
-        tempo=$(echo "" | $menu "Esperar em segundos:")
-        sleep "$tempo" && grimshot --notify copy output
-        ;;
-    "todas as telas (Temporizar) (copiar)")
-        tempo=$(echo "" | $menu "Esperar em segundos:")
-        sleep "$tempo" && grimshot --notify copy screen
-        ;;
+	"uma area selecionada")
+		grimshot --notify save area "$print_nome" && $visualizar && _0x0
+		;;
+	"uma janela")
+		grimshot --notify save window "$print_nome" && $visualizar && _0x0
+		;;
+	"tela atual (Temporizar)")
+		tempo=$(echo "" | $menu "Esperar em segundos:")
+		sleep "$tempo" && grimshot --notify save output "$print_nome" && $visualizar && _0x0
+		;;
+	"todas as telas (Temporizar)")
+		tempo=$(echo "" | $menu "Esperar em segundos:")
+		sleep "$tempo" && grimshot --notify save screen "$print_nome" && $visualizar && _0x0
+		;;
+	"uma area selecionada (copiar)")
+		grimshot --notify copy area
+		;;
+	"uma janela (copiar)")
+		grimshot --notify copy window
+		;;
+	"tela atual (Temporizar) (copiar)")
+		tempo=$(echo "" | $menu "Esperar em segundos:")
+		sleep "$tempo" && grimshot --notify copy output
+		;;
+	"todas as telas (Temporizar) (copiar)")
+		tempo=$(echo "" | $menu "Esperar em segundos:")
+		sleep "$tempo" && grimshot --notify copy screen
+		;;
 esac
