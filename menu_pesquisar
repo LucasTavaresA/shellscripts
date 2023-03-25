@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 menu="tofi --anchor top --width 100% --padding-left 0 --prompt-text"
-[ -z "$WAYLAND_DISPLAY" ] && menu="dmenu -a -l 1 -h 20 -g 30 -p"
+[ -z "$WAYLAND_DISPLAY" ] && menu="dmenu -l 15 -b -p"
 
 pesquisa=$(printf "g
 fb
