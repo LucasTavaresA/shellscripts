@@ -2,7 +2,7 @@
 
 # continua caso o mpd esteja aberto
 if ! mpc >/dev/null; then
-    exit 0
+	exit 0
 fi
 
 echo "$@" | grep -q prox && mpc next
@@ -15,11 +15,11 @@ nome=${arquivo%.*}                      # musica
 nome_curto=$(echo "$nome" | cut -c -40) # mus.. 40 caracteres
 
 # posição na playlist
-pos="$(mpc | grep -C 1 -o '[[:digit:]]*/[[:digit:]]* ')" # 10/25
+pos="$(mpc | sed -n 's/.*#\([[:digit:]]*\/[[:digit:]]*\).*/[\1]/p')" # [123/456]
 
 echo "$@" | grep -q notificar && notify-send Tocando "$nome"
-echo "$@" | grep -q tocando && output="$nome_curto $pos" \
-    && echo "$output" >"$HOME/documentos/tocando.txt" \
-    && echo "$output"
+echo "$@" | grep -q tocando && output="$nome_curto $pos" &&
+	echo "$output" >"$HOME/documentos/tocando.txt" &&
+	echo "$output"
 
 exit 0

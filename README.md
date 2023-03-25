@@ -26,11 +26,15 @@ Gera números aleatórios ate ser cancelado
 
 ## musica
 
-Separa nome da musica tocando no mpd e a posição da musica na playlist
+Separa nome do arquivo tocando no mpd e a posição da musica na playlist
+
+Ex: `Eminem Rap God [2/15]`
 
 Notifica com `musica notificar`, Retorna nome e posição se usado com `musica tocando`
 
-Troca de musica com `musica ante e musica prox`
+Troca de musica com `musica ante` e `musica prox`
+
+Todos os commandos podem ser combinados em qualquer ordem
 
 ## volume
 
