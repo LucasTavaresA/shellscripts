@@ -4,9 +4,9 @@
 
 **Recomendo modificar/analizar os scripts ao seu gosto, ou ver/entender como eles funcionam antes de usa-los**
 
-## wayland print
+## wayland/xorg print
 
-Varias formas de captura de tela para wayland usando o grimshot, com temporizador ajustável
+Varias formas de captura de tela, com temporizadores
 
 ## transadd
 

@@ -1,0 +1,35 @@
+#!/usr/bin/env sh
+print_nome="$HOME/print_$(date '+%d_%H:%M').png"
+visualizar="vimiv $print_nome"
+menu="dmenu -b -l 15 -p"
+
+_0x0() {
+	enviar=$(echo "" | $menu "Enviar imagem usando 0x0 [y/N]?")
+	curl="curl -F'file=@$print_nome' https://0x0.st"
+	[ "$enviar" = "y" ] && eval "$curl" | xclip -selection clipboard && notify-send 0x0 "screenshot enviado & url copiada"
+}
+
+case "$(printf "uma area selecionada\\numa janela\\ntela cheia (Temporizar)\
+\\numa area selecionada (copiar)\\numa janela (copiar)\\ntela cheia (Temporizar) (copiar)" |
+	$menu "Area do print?")" in
+	"uma area selecionada")
+		maim -s "$print_nome" && $visualizar && _0x0
+		;;
+	"uma janela")
+		maim -i "$(xdotool selectwindow)" "$print_nome" && $visualizar && _0x0
+		;;
+	"tela cheia (Temporizar)")
+		tempo=$(echo "" | $menu "Esperar em segundos:")
+		sleep "$tempo" && maim "$print_nome" && $visualizar && _0x0
+		;;
+	"uma area selecionada (copiar)")
+		maim -s | xclip -selection clipboard -t image/png
+		;;
+	"uma janela (copiar)")
+		maim -i "$(xdotool selectwindow)" | xclip -selection clipboard -t image/png
+		;;
+	"tela cheia (Temporizar) (copiar)")
+		tempo=$(echo "" | $menu "Esperar em segundos:")
+		sleep "$tempo" && maim | xclip -selection clipboard -t image/png
+		;;
+esac
