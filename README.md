@@ -51,6 +51,12 @@ Dependências para cheatsheets: `cheat`
 Abre o terminal na variável `$TERMINAL` e adapta flags ao terminal usado
 Mais detalhes usando `term_open -h` ou lendo a ajuda no código fonte
 
+## term_scratchpad
+
+Alterna todo os terminais como scratchpads, Apensa **Xorg**
+
+Dependências: xdo, xdotool
+
 ## menu mont
 
 Monta e desmonta drives e isos
