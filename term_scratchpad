@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # shellcheck disable=2086
-[ "$TERMINAL" = "st" ] && term_class="st-256color"
+[ "$TERMINAL" = "st" ] && term_class="St"
 nvim_ids=$(xdotool search --name "^nvim$")
 [ -z "$nvim_ids" ] && term_ids=$(xdotool search --class "^${term_class:-$TERMINAL}$")
 [ -n "$nvim_ids" ] && term_ids=$(xdotool search --class "^${term_class:-$TERMINAL}$" | grep -v "$nvim_ids")
