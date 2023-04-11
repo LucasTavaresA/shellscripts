@@ -3,7 +3,8 @@
 menu="tofi --anchor top --width 100% --padding-left 0 --prompt-text"
 [ -z "$WAYLAND_DISPLAY" ] && menu="dmenu -l 15 -b -p"
 
-pesquisa=$(printf "g
+pesquisa=$(printf "s
+g
 fb
 yt
 ytb
@@ -163,4 +164,4 @@ case $pesquisa in
 esac
 
 [ -z "$site" ] && exit
-$BROWSER "$site"
+$BROWSER --new-tab "$site"
