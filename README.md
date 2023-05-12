@@ -30,7 +30,8 @@ Separa nome do arquivo tocando no mpd e a posição da musica na playlist
 
 Ex: `Eminem Rap God [2/15]`
 
-Notifica com `musica notificar`, Retorna nome e posição se usado com `musica tocando`
+Notifica com `musica notificar 60`, Retorna nome e posição se usado com `musica tocando 60`
+output é limitado pelo numero passado como segundo argumento
 
 Troca de musica com `musica ante` e `musica prox`
 

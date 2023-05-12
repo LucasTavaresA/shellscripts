@@ -12,7 +12,7 @@ echo "$@" | grep -q ante && mpc prev
 caminho="$(mpc current -f %file%)"      # /home/lucas/musica.mp3
 arquivo=${caminho##*/}                  # musica.mp3
 nome=${arquivo%.*}                      # musica
-nome_curto=$(echo "$nome" | cut -c -40) # mus.. 40 caracteres
+nome_curto=$(echo "$nome" | cut -c "-$2") # mus.. $2 caracteres
 
 # posição na playlist
 pos="$(mpc | sed -n 's/.*#\([[:digit:]]*\/[[:digit:]]*\).*/[\1]/p')" # [123/456]
