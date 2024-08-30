@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
+set -e
 copy="wl-copy"
-[ -z "$WAYLAND_DISPLAY" ] && copy="xclip -selection clipboard"
+[ -z "$WAYLAND_DISPLAY" ] && copy="xsel --clipboard"
 
-selecionado=$(cut -d ';' -f1 "$(dirname "$0")"/listas/emojis | uniq -u | fzf | sed "s/ .*//")
+selecionado=$(cut -d ';' -f1 "$(dirname "$0")"/listas/emojis | uniq -u | fzf | awk '{print $1}')
 
 # Sai caso nenhum é selecionado.
 [ -z "$selecionado" ] && exit
