@@ -8,11 +8,16 @@ fi
 echo "$@" | grep -q prox && mpc next
 echo "$@" | grep -q ante && mpc prev
 
+length="$2"
+if [ "$length" = "" ]; then
+	length=1000
+fi
+
 # separa o nome da musica
 caminho="$(mpc current -f %file%)"      # /home/lucas/musica.mp3
 arquivo=${caminho##*/}                  # musica.mp3
 nome=${arquivo%.*}                      # musica
-nome_curto=$(echo "$nome" | cut -c "-$2") # mus.. $2 caracteres
+nome_curto=$(echo "$nome" | cut -c "-$length") # mus.. $2 caracteres
 
 # posição na playlist
 pos="$(mpc | sed -n 's/.*#\([[:digit:]]*\/[[:digit:]]*\).*/[\1]/p')" # [123/456]
