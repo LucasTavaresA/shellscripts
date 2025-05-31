@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+set -xe
 
 menu="tofi --anchor top --width 100% --padding-left 0 --prompt-text"
 [ -z "$WAYLAND_DISPLAY" ] && menu="dmenu -l 15 -b -p"
@@ -164,4 +165,4 @@ case $pesquisa in
 esac
 
 [ -z "$site" ] && exit
-$BROWSER --new-tab "$site"
+$BROWSER --target tab "$site"
