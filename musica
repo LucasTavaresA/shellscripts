@@ -24,7 +24,6 @@ pos="$(mpc | sed -n 's/.*#\([[:digit:]]*\/[[:digit:]]*\).*/[\1]/p')" # [123/456]
 
 echo "$@" | grep -q notificar && notify-send Tocando "$nome"
 echo "$@" | grep -q tocando && output="$nome_curto $pos" &&
-	echo "$output" >"$HOME/documentos/${HOSTNAME}_tocando.txt" &&
 	echo "$output"
 
 exit 0
