@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+timeout=10
+
+if test $# -gt 1; then
+	timeout=$2
+fi
+
+while true; do
+	status="$(cat "/sys/class/power_supply/BAT0/status")"
+
+	case "$status" in
+		Discharging)
+			charge="$(cat "/sys/class/power_supply/BAT0/capacity")"
+
+			if test "$charge" -le 10 && test "$charge" -ge 0; then
+				notify-send -u low "Only $charge% battery left!"
+			fi
+			;;
+		Full)
+			notify-send -u low "Fully Charged!"
+			;;
+		*) ;;
+	esac
+
+	sleep "$timeout"
+done
